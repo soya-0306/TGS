@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "D:\\240281\\Unity\\TGS\\CardGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\Unity\\TGS\\CardGame\\assets\\c#\\deckselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\Unity\\TGS\\CardGame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\unity\\tgs\\cardgame\\assets\\c#\\deckselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\deckselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\deckdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\unity\\tgs\\cardgame\\assets\\c#\\deckinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\Unity\\TGS\\CardGame\\assets\\c#\\deckinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\deckinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\combomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\unity\\tgs\\cardgame\\assets\\c#\\directionalcardselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\Unity\\TGS\\CardGame\\assets\\c#\\directionalcardselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\directionalcardselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -49,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\Unity\\TGS\\CardGame\\assets\\c#\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\Unity\\TGS\\CardGame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,11 +62,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DeckInstance.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\DeckInstance.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\DeckInstance.cs",
@@ -74,12 +74,11 @@
               "RelativeToolTip": "Assets\\C#\\DeckInstance.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T05:35:11.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T05:35:11.845Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "DeckSelectUI.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\DeckSelectUI.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\DeckSelectUI.cs",
@@ -91,20 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DeckSelector.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\DeckSelector.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\DeckSelector.cs",
               "ToolTip": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\DeckSelector.cs",
               "RelativeToolTip": "Assets\\C#\\DeckSelector.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAIBLwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-17T05:32:36.499Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DeckDefinition.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\DeckDefinition.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\DeckDefinition.cs",
@@ -112,24 +111,24 @@
               "RelativeToolTip": "Assets\\C#\\DeckDefinition.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T05:30:40.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T05:30:40.559Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "BattleManager.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\BattleManager.cs",
               "ToolTip": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
               "RelativeToolTip": "Assets\\C#\\BattleManager.cs",
-              "ViewState": "AgIAAMQAAAAAAAAAAAAAAOQAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAF4BAAAAAAAAAAAMwHwBAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:33:30.6Z"
+              "WhenOpened": "2025-06-12T03:33:30.6Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Card.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\Card.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\Card.cs",
@@ -141,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "CardUI.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\CardUI.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\CardUI.cs",
@@ -153,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CardSlotUI.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\CardSlotUI.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\CardSlotUI.cs",
@@ -165,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ComboManager.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\ComboManager.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\ComboManager.cs",
@@ -173,12 +172,11 @@
               "RelativeToolTip": "Assets\\C#\\ComboManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T05:12:17.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T05:12:17.204Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Deck.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\Deck.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\Deck.cs",
@@ -190,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "DirectionalCardSelector.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\DirectionalCardSelector.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\DirectionalCardSelector.cs",
@@ -198,12 +196,11 @@
               "RelativeToolTip": "Assets\\C#\\DirectionalCardSelector.cs",
               "ViewState": "AgIAAKEAAACA//////8nwBoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T03:33:51.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T03:33:51.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "PlayerHP.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\PlayerHP.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\PlayerHP.cs",
@@ -215,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SelectionCounterUI.cs",
               "DocumentMoniker": "D:\\240281\\Unity\\TGS\\CardGame\\Assets\\C#\\SelectionCounterUI.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\SelectionCounterUI.cs",
