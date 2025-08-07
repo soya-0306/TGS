@@ -74,7 +74,15 @@ public class BattleManager : MonoBehaviour
 
     public GameObject fireEffectPrefab;
 
-      void Start()
+    [Header("キャラクター召喚用の設定")]
+    public Transform player1SpawnPoint;
+    public Transform player2SpawnPoint;
+
+    private GameObject player1Character;
+    private GameObject player2Character;
+
+
+    void Start()
     {
         // 各プレイヤーにIDを割り当て
         player1Selector.playerId = 1;
@@ -107,6 +115,23 @@ public class BattleManager : MonoBehaviour
 
         genericCombosFromDeck = player2Deck.genericCombos; // player2DeckのgenericCombos
         player2ComboManager = new ComboManager(player2Deck.combos, genericCombosFromDeck);
+
+        // ▼ プレイヤーキャラの召喚
+        if (player1Deck.deckCharacterPrefab != null && player1SpawnPoint != null)
+        {
+            player1Character = Instantiate(player1Deck.deckCharacterPrefab, player1SpawnPoint);
+            player1Character.transform.localPosition = Vector3.zero;
+            player1Character.transform.localRotation = Quaternion.identity;
+            player1Character.transform.localScale = Vector3.one;
+        }
+
+        if (player2Deck.deckCharacterPrefab != null && player2SpawnPoint != null)
+        {
+            player2Character = Instantiate(player2Deck.deckCharacterPrefab, player2SpawnPoint);
+            player2Character.transform.localPosition = Vector3.zero;
+            player2Character.transform.localRotation = Quaternion.identity;
+            player2Character.transform.localScale = Vector3.one;
+        }
     }
 
     void Update()
@@ -220,6 +245,8 @@ public class BattleManager : MonoBehaviour
                     damagedPlayer = 2;
                     // ダメージパネルの表示をDoChargeAttack内に移動したのでここでは呼ばない
                     yield return StartCoroutine(DoChargeAttack(p1CardObj, p2CardObj, damagedPlayer));
+                    // Player1が勝った場合
+                    PlayCharacterAnimation(player1Character, c1.Type);
                 }
                 else if (c2.Beats(c1))
                 {
@@ -230,6 +257,8 @@ public class BattleManager : MonoBehaviour
                     damagedPlayer = 1;
                     // ダメージパネルの表示をDoChargeAttack内に移動したのでここでは呼ばない
                     yield return StartCoroutine(DoChargeAttack(p2CardObj, p1CardObj, damagedPlayer));
+                    // Player2が勝った場合
+                    PlayCharacterAnimation(player2Character, c2.Type);
                 }
                 else
                     roundResult += "Draw";
@@ -502,4 +531,15 @@ public class BattleManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("TitleScene");
     }
+
+    private void PlayCharacterAnimation(GameObject character, CardType cardType)
+    {
+        if (character == null) return;
+
+        var animController = character.GetComponent<KeyAnimationController>();
+        if (animController == null) return;
+
+        animController.PlayCardAnimation(cardType); // 新しく作るメソッド
+    }
+
 }

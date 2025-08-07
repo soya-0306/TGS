@@ -1,21 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class KeyAnimationController : MonoBehaviour
 {
     private Animation anim;
 
-    [Header("ƒAƒjƒ[ƒVƒ‡ƒ“ƒNƒŠƒbƒv")]
+    [Header("ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒªãƒƒãƒ—")]
     public AnimationClip IdleClip;
     public AnimationClip FightClip;
     public AnimationClip WeaponClip;
     public AnimationClip MagicClip;
 
-    [Header("ƒGƒtƒFƒNƒg")]
+    [Header("ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ")]
     public GameObject FightEffect;
     public GameObject WeaponEffect;
     public GameObject MagicEffect;
 
-    [Header("ƒGƒtƒFƒNƒgƒXƒ|[ƒ“ƒ|ƒCƒ“ƒg")]
+    [Header("ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚¹ãƒãƒ¼ãƒ³ãƒã‚¤ãƒ³ãƒˆ")]
     public Transform FightEffectSpawnPoint;
     public Transform WeaponEffectSpawnPoint;
     public Transform MagicEffectSpawnPoint;
@@ -29,7 +29,7 @@ public class KeyAnimationController : MonoBehaviour
         if (anim == null)
         {
             anim = gameObject.AddComponent<Animation>();
-            Debug.LogWarning("Animation ƒRƒ“ƒ|[ƒlƒ“ƒg‚ª‚È‚©‚Á‚½‚Ì‚Å’Ç‰Á‚µ‚Ü‚µ‚½B");
+            Debug.LogWarning("Animation ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒãªã‹ã£ãŸã®ã§è¿½åŠ ã—ã¾ã—ãŸã€‚");
         }
 
         AddClipIfNeeded(IdleClip, WrapMode.Loop);
@@ -45,7 +45,7 @@ public class KeyAnimationController : MonoBehaviour
 
     void Update()
     {
-        // ƒAƒjƒ[ƒVƒ‡ƒ“I—¹Œã‚Éidle‚É–ß‚·
+        // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³çµ‚äº†å¾Œã«idleã«æˆ»ã™
         if (Time.time > currentAnimEndTime && !anim.IsPlaying(IdleClip.name))
         {
             anim.Play(IdleClip.name);
@@ -75,17 +75,27 @@ public class KeyAnimationController : MonoBehaviour
         currentAnimEndTime = Time.time + duration;
     }
 
-    private void PlayEffect(GameObject effect, Transform spawnPoint)
+    private void PlayEffect(GameObject effectPrefab, Transform spawnPoint)
     {
         StopCurrentEffect();
 
-        if (effect != null && spawnPoint != null)
+        if (effectPrefab != null && spawnPoint != null)
         {
-            currentEffectInstance = Instantiate(effect, spawnPoint.position, Quaternion.identity);
+            currentEffectInstance = Instantiate(effectPrefab, spawnPoint.position, Quaternion.identity);
+
+            // ã‚­ãƒ£ãƒ©ã«è¿½å¾“ã•ã›ã‚‹
             currentEffectInstance.transform.SetParent(spawnPoint);
             currentEffectInstance.transform.localPosition = Vector3.zero;
+
+            // ğŸ”½ ã‚¹ã‚±ãƒ¼ãƒ«èª¿æ•´ï¼šè¦ªã®ã‚¹ã‚±ãƒ¼ãƒ«ã«å¿œã˜ã¦è¦‹ãŸç›®ã‚’è£œæ­£
+            float baseScale = 1.0f; // ã“ã®å€¤ã‚’èª¿æ•´ã—ã¦ã¡ã‚‡ã†ã©ã‚ˆã„è¦‹ãŸç›®ã«åˆã‚ã›ã‚‹
+            Vector3 parentScale = spawnPoint.lossyScale;
+            float averageScale = (parentScale.x + parentScale.y + parentScale.z) / 3f;
+
+            currentEffectInstance.transform.localScale = Vector3.one * baseScale * averageScale;
         }
     }
+
 
     private void StopCurrentEffect()
     {
@@ -107,4 +117,27 @@ public class KeyAnimationController : MonoBehaviour
             }
         }
     }
+
+    public void PlayCardAnimation(CardType type)
+    {
+        switch (type)
+        {
+            case CardType.Rock:
+                PlayAnimation(FightClip.name, FightClip.length);
+                PlayEffect(FightEffect, FightEffectSpawnPoint);
+                break;
+            case CardType.Paper:
+                PlayAnimation(WeaponClip.name, WeaponClip.length);
+                PlayEffect(WeaponEffect, WeaponEffectSpawnPoint);
+                break;
+            case CardType.Scissors:
+                PlayAnimation(MagicClip.name, MagicClip.length);
+                PlayEffect(MagicEffect, MagicEffectSpawnPoint);
+                break;
+            default:
+                // Idleã‚„æœªå¯¾å¿œã‚«ãƒ¼ãƒ‰ï¼ˆShieldãªã©ï¼‰ã¯ç„¡è¦–
+                break;
+        }
+    }
+
 }
