@@ -211,4 +211,54 @@ public class DirectionalCardSelector : MonoBehaviour
         deckInstance = new DeckInstance(def);
         playerDeck = CreateDeckFromDefinition(deck);
     }
+
+    public List<Card> ForceSelectRemainingCards()
+    {
+        List<Card> remaining = new List<Card>();
+
+        if (!selectedCards.Contains(up.card)) remaining.Add(up.card);
+        if (!selectedCards.Contains(down.card)) remaining.Add(down.card);
+        if (!selectedCards.Contains(left.card)) remaining.Add(left.card);
+        if (!selectedCards.Contains(right.card)) remaining.Add(right.card);
+
+        // 残ってる中からランダムに選ぶ
+        while (selectedCards.Count < 4 && remaining.Count > 0)
+        {
+            int randIndex = Random.Range(0, remaining.Count);
+            Card selected = remaining[randIndex];
+            selectedCards.Add(selected);
+            remaining.RemoveAt(randIndex);
+        }
+
+        // イベント発火（選択完了扱いにする）
+        OnSelectionComplete?.Invoke(playerId, selectedCards);
+
+        return selectedCards;
+    }
+
+    public void ForceCompleteSelectionIfNeeded()
+    {
+        if (selectedCards.Count >= 4) return;
+
+        List<Card> candidates = new List<Card>();
+
+        if (!selectedCards.Contains(up.card)) candidates.Add(up.card);
+        if (!selectedCards.Contains(down.card)) candidates.Add(down.card);
+        if (!selectedCards.Contains(left.card)) candidates.Add(left.card);
+        if (!selectedCards.Contains(right.card)) candidates.Add(right.card);
+
+        while (selectedCards.Count < 4 && candidates.Count > 0)
+        {
+            int index = UnityEngine.Random.Range(0, candidates.Count);
+            Card randomCard = candidates[index];
+            selectedCards.Add(randomCard);
+            candidates.RemoveAt(index);
+
+            // UI反映
+            selectionCounterUI?.UpdateSelectionCount(selectedCards.Count);
+        }
+
+        OnSelectionComplete?.Invoke(playerId, new List<Card>(selectedCards));
+    }
+
 }

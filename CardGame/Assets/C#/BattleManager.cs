@@ -72,7 +72,11 @@ public class BattleManager : MonoBehaviour
     public SelectionCounterUI player1RevealUI;
     public SelectionCounterUI player2RevealUI;
 
+    [Header("エフェクト")]
+    public GameObject drawEffectPrefab; // あいこ用
     public GameObject fireEffectPrefab;
+
+    public Transform drawEffectCenterPoint;
 
     [Header("キャラクター召喚用の設定")]
     public Transform player1SpawnPoint;
@@ -81,6 +85,12 @@ public class BattleManager : MonoBehaviour
     private GameObject player1Character;
     private GameObject player2Character;
 
+    private float selectionTimeLimit = 60f; // 1分
+    private float selectionTimer = 0f;
+    private bool isSelectionTimerRunning = false;
+
+    [Header("選択フェーズの制限時間UI")]
+    public TMP_Text selectionTimerText;
 
     void Start()
     {
@@ -132,6 +142,8 @@ public class BattleManager : MonoBehaviour
             player2Character.transform.localRotation = Quaternion.identity;
             player2Character.transform.localScale = Vector3.one;
         }
+
+        StartSelectionPhase();
     }
 
     void Update()
@@ -142,6 +154,24 @@ public class BattleManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.A))
             {
                 ReturnToTitle();
+            }
+        }
+
+        // ▼ 選択フェーズの制限時間処理
+        if (isSelectionTimerRunning)
+        {
+            selectionTimer += Time.deltaTime;
+
+            float remaining = Mathf.Clamp(selectionTimeLimit - selectionTimer, 0f, selectionTimeLimit);
+            if (selectionTimerText != null)
+            {
+                selectionTimerText.text = $"選択残り時間: {Mathf.CeilToInt(remaining)}秒";
+            }
+
+            if (selectionTimer >= selectionTimeLimit)
+            {
+                isSelectionTimerRunning = false;
+                ForceSelectRemainingCards();
             }
         }
     }
@@ -223,6 +253,7 @@ public class BattleManager : MonoBehaviour
                 p1History.Clear();
                 p2History.Clear();
                 skipJudgement = true;
+                yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
             }
             else
             {
@@ -233,9 +264,15 @@ public class BattleManager : MonoBehaviour
             if (!skipJudgement)
             {
                 if (c1.IsShield())
+                {
                     roundResult += "P1 Shield - No damage";
+                    yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
+                }
                 else if (c2.IsShield())
+                {
+                    yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
                     roundResult += "P2 Shield - No damage";
+                }
                 else if (c1.Beats(c2))
                 {
                     int dmg = Mathf.CeilToInt(1 * p1Multiplier);
@@ -261,7 +298,10 @@ public class BattleManager : MonoBehaviour
                     PlayCharacterAnimation(player2Character, c2.Type);
                 }
                 else
+                {
                     roundResult += "Draw";
+                    yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
+                }
             }
 
             roundResultText.text = roundResult;
@@ -394,6 +434,7 @@ public class BattleManager : MonoBehaviour
 
             roundResultText.text = $"Round {currentRound} Start!";
         }
+        StartSelectionPhase();
     }
 
 
@@ -540,6 +581,80 @@ public class BattleManager : MonoBehaviour
         if (animController == null) return;
 
         animController.PlayCardAnimation(cardType); // 新しく作るメソッド
+    }
+
+    private IEnumerator DoDrawEffect(GameObject card1, GameObject card2)
+    {
+        float moveDuration = 0.3f;
+
+        // カード1 & 2 を中央に移動
+        Vector3 centerPos = drawEffectCenterPoint.position;
+
+        Tween move1 = card1.transform.DOMove(centerPos + Vector3.left * 3f, moveDuration).SetEase(Ease.OutQuad);
+        Tween move2 = card2.transform.DOMove(centerPos + Vector3.left * -3f, moveDuration).SetEase(Ease.OutQuad);
+
+        yield return DOTween.Sequence().Join(move1).Join(move2).WaitForCompletion();
+
+        // 衝突後、エフェクト表示
+        if (drawEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(drawEffectPrefab, drawEffectCenterPoint.position, Quaternion.identity, drawEffectCenterPoint);
+            effect.transform.localScale = Vector3.one * 100f;
+            Destroy(effect, 0.6f);
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        // 元に戻す
+        Tween return1 = card1.transform.DOLocalMove(Vector3.zero, 0.3f).SetEase(Ease.InQuad);
+        Tween return2 = card2.transform.DOLocalMove(Vector3.zero, 0.3f).SetEase(Ease.InQuad);
+
+        yield return DOTween.Sequence().Join(return1).Join(return2).WaitForCompletion();
+    }
+
+    private void ForceCompleteSelections()
+    {
+        if (!playerSelections.ContainsKey(1))
+        {
+            List<Card> autoCards = player1Selector.ForceSelectRemainingCards();
+            OnPlayerSelectionComplete(1, autoCards);
+        }
+
+        if (!playerSelections.ContainsKey(2))
+        {
+            List<Card> autoCards = player2Selector.ForceSelectRemainingCards();
+            OnPlayerSelectionComplete(2, autoCards);
+        }
+    }
+
+    // ラウンドの開始時などに呼び出す
+    private void StartSelectionPhase()
+    {
+        player1Selector.gameObject.SetActive(true);
+        player2Selector.gameObject.SetActive(true);
+        player1CardDisplay.SetActive(true);
+        player2CardDisplay.SetActive(true);
+
+        selectionTimer = 0f;
+        isSelectionTimerRunning = true;
+
+        if (selectionTimerText != null)
+        {
+            selectionTimerText.gameObject.SetActive(true); // UIを表示
+        }
+    }
+
+    private void ForceSelectRemainingCards()
+    {
+        Debug.Log("時間切れ！残りのカードをランダムで選択");
+
+        player1Selector.ForceCompleteSelectionIfNeeded();
+        player2Selector.ForceCompleteSelectionIfNeeded();
+
+        if (selectionTimerText != null)
+        {
+            selectionTimerText.gameObject.SetActive(false);
+        }
     }
 
 }
