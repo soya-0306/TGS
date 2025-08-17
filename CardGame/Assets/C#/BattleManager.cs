@@ -85,12 +85,17 @@ public class BattleManager : MonoBehaviour
     private GameObject player1Character;
     private GameObject player2Character;
 
-    private float selectionTimeLimit = 60f; // 1分
+    [Header("選択フェーズの制限時間UI")]
+    public float selectionTimeLimit = 60f;
     private float selectionTimer = 0f;
     private bool isSelectionTimerRunning = false;
 
-    [Header("選択フェーズの制限時間UI")]
     public TMP_Text selectionTimerText;
+
+    [Header("ダメージ吹き出し")]
+    public GameObject damagePopupPrefab; // 吹き出しプレハブ
+    public Vector3 damagePopupOffset = new Vector3(0f, 100f, 0f); // カードからのオフセット位置
+    private int lastDamageAmount = 0; // 最後に発生したダメージ
 
     void Start()
     {
@@ -234,7 +239,7 @@ public class BattleManager : MonoBehaviour
             Card c2 = p2Cards[i];
 
             string[] ordinals = { "1st", "2nd", "3rd", "4th" };
-            string roundResult = $"{ordinals[i]} Card: ";
+            string roundResult = $"{ordinals[i]} Card";
 
             bool skipJudgement = false;
 
@@ -249,7 +254,7 @@ public class BattleManager : MonoBehaviour
             // 両者シールド → コンボキャンセルだけして判定スキップ
             if (c1.IsShield() && c2.IsShield())
             {
-                roundResult += "Combo Cancel!";
+                roundResult += " :Combo Cancel!";
                 p1History.Clear();
                 p2History.Clear();
                 skipJudgement = true;
@@ -265,19 +270,23 @@ public class BattleManager : MonoBehaviour
             {
                 if (c1.IsShield())
                 {
-                    roundResult += "P1 Shield - No damage";
+                    //roundResult += "P1 Shield - No damage";
                     yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
                 }
                 else if (c2.IsShield())
                 {
                     yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
-                    roundResult += "P2 Shield - No damage";
+                    //roundResult += "P2 Shield - No damage";
                 }
                 else if (c1.Beats(c2))
                 {
                     int dmg = Mathf.CeilToInt(1 * p1Multiplier);
-                    roundResult += $"Player2 →{dmg} Damage";
+                    lastDamageAmount = dmg;
                     player2HP.TakeDamage(dmg);
+
+                    //roundResult += $"Player2 →{dmg} Damage";
+                    //player2HP.TakeDamage(dmg);
+
                     player1WinCount++;
                     damagedPlayer = 2;
                     // ダメージパネルの表示をDoChargeAttack内に移動したのでここでは呼ばない
@@ -288,8 +297,12 @@ public class BattleManager : MonoBehaviour
                 else if (c2.Beats(c1))
                 {
                     int dmg = Mathf.CeilToInt(1 * p2Multiplier);
-                    roundResult += $"Player1 →{dmg} Damage";
+                    lastDamageAmount = dmg;
                     player1HP.TakeDamage(dmg);
+
+                    //roundResult += $"Player1 →{dmg} Damage";
+                    //player1HP.TakeDamage(dmg);
+
                     player2WinCount++;
                     damagedPlayer = 1;
                     // ダメージパネルの表示をDoChargeAttack内に移動したのでここでは呼ばない
@@ -418,6 +431,8 @@ public class BattleManager : MonoBehaviour
             player1RevealUI.gameObject.SetActive(true);
             player2RevealUI.gameObject.SetActive(true);
 
+            selectionTimerText.gameObject.SetActive(true);
+
             player1RevealUI.ShowAllChildren();
             player2RevealUI.ShowAllChildren();
 
@@ -519,6 +534,10 @@ public class BattleManager : MonoBehaviour
         effect.transform.localPosition = new Vector3(0f, -30f, 0f);
         effect.transform.localScale = Vector3.one * 30f;
         Destroy(effect, 0.6f); //自動破棄
+
+        // ダメージ値を取得（これは直前の BattlePhase で渡す必要がある）
+        int damage = lastDamageAmount; // 後述する変数で保持する
+        ShowDamagePopup(cardObj, damage);
     }
 
 
@@ -564,6 +583,12 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator RevealCardsThenStartBattle()
     {
+        // ▼ ここでタイマーを消す
+        if (selectionTimerText != null)
+        {
+            selectionTimerText.gameObject.SetActive(false);
+        }
+
         // 4枚を順に処理しつつ、1枚ずつ同時に中央に出すBattlePhaseを呼ぶ
         yield return StartCoroutine(BattlePhase());
     }
@@ -655,6 +680,30 @@ public class BattleManager : MonoBehaviour
         {
             selectionTimerText.gameObject.SetActive(false);
         }
+    }
+
+    private void ShowDamagePopup(GameObject targetCard, int damageAmount)
+    {
+        if (damagePopupPrefab == null || targetCard == null) return;
+
+        // 吹き出しを生成
+        GameObject popup = Instantiate(damagePopupPrefab, targetCard.transform.parent);
+
+        // 初期位置を設定
+        popup.transform.position = targetCard.transform.position + damagePopupOffset;
+
+        // テキストを更新
+        TMP_Text text = popup.GetComponentInChildren<TMP_Text>();
+        if (text != null)
+        {
+            text.text = damageAmount.ToString();
+        }
+
+        // アニメーション（上にふわっと動いて消える）
+        Sequence seq = DOTween.Sequence();
+        seq.Append(popup.transform.DOMoveY(popup.transform.position.y + 5f, 0.8f).SetEase(Ease.OutQuad));
+        seq.Join(popup.GetComponent<CanvasGroup>().DOFade(0f, 0.8f));
+        seq.OnComplete(() => Destroy(popup));
     }
 
 }

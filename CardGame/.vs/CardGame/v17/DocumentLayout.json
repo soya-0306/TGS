@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\TGS\\CardGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\tgs\\cardgame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\TGS\\CardGame\\assets\\c#\\directionalcardselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\directionalcardselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\tgs\\cardgame\\assets\\c#\\directionalcardselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\directionalcardselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\tgs\\cardgame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +18,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "DirectionalCardSelector.cs",
               "DocumentMoniker": "D:\\TGS\\CardGame\\Assets\\C#\\DirectionalCardSelector.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\DirectionalCardSelector.cs",
               "ToolTip": "D:\\TGS\\CardGame\\Assets\\C#\\DirectionalCardSelector.cs",
               "RelativeToolTip": "Assets\\C#\\DirectionalCardSelector.cs",
-              "ViewState": "AgIAAN0AAAAAAAAAAAAAwAYBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAQwAYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-09T06:17:17.667Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BattleManager.cs",
               "DocumentMoniker": "D:\\TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\BattleManager.cs",
               "ToolTip": "D:\\TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
               "RelativeToolTip": "Assets\\C#\\BattleManager.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAAwKcAAABTAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAkwAkBAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-07T04:54:17.471Z",
               "EditorCaption": ""

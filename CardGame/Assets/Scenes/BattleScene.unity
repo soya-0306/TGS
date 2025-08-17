@@ -3288,7 +3288,10 @@ MonoBehaviour:
   drawEffectCenterPoint: {fileID: 1701449378}
   player1SpawnPoint: {fileID: 382918603}
   player2SpawnPoint: {fileID: 1436390702}
+  selectionTimeLimit: 60
   selectionTimerText: {fileID: 2054253054}
+  damagePopupPrefab: {fileID: 500923665181767684, guid: 6ef7a23325323d04397bc188c7089b23, type: 3}
+  damagePopupOffset: {x: 0, y: 3, z: 0}
 --- !u!4 &515311843
 Transform:
   m_ObjectHideFlags: 0
