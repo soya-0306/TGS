@@ -28,6 +28,8 @@ public class DirectionalCardSelector : MonoBehaviour
 
     public DeckDefinition playerDeckDefinition;
 
+    public bool canSelect = true;  // ← 外部から切り替える用のフラグ
+
     void Start()
     {
 
@@ -71,6 +73,9 @@ public class DirectionalCardSelector : MonoBehaviour
 
     void Update()
     {
+        if (!canSelect)
+            return; // 選択できない状態なら何もしない
+
         // プレイヤーごとの操作定義（Input Manager で設定する必要あり）
         if (playerId == 1)
         {

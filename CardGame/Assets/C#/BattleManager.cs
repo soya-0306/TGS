@@ -12,6 +12,8 @@ using UnityEngine.SceneManagement;
 // ゲームの進行（フェーズ管理・じゃんけん処理・HP管理・コンボ処理）を司るメインクラス
 public class BattleManager : MonoBehaviour
 {
+    DirectionalCardSelector directionalCardSelector;
+
     // 各プレイヤーのカード選択ロジックを扱うコンポーネント
     public DirectionalCardSelector player1Selector;
     public DirectionalCardSelector player2Selector;
@@ -90,6 +92,13 @@ public class BattleManager : MonoBehaviour
     private float selectionTimer = 0f;
     private bool isSelectionTimerRunning = false;
 
+    [Header("リロールフェーズの制限時間UI")]
+    private float rerollTimer = 0f;
+    private float rerollTimeLimit = 10f;
+    private bool isRerollTimerRunning = false;
+    private bool p1WantsReroll = false;
+    private bool p2WantsReroll = false;
+
     public TMP_Text selectionTimerText;
 
     [Header("ダメージ吹き出し")]
@@ -148,7 +157,7 @@ public class BattleManager : MonoBehaviour
             player2Character.transform.localScale = Vector3.one;
         }
 
-        StartSelectionPhase();
+        StartRerollPhase();
     }
 
     void Update()
@@ -160,6 +169,30 @@ public class BattleManager : MonoBehaviour
             {
                 ReturnToTitle();
             }
+        }
+
+        // ▼ リロールフェーズの制限時間処理
+        if (isRerollTimerRunning)
+        {
+            rerollTimer += Time.deltaTime;
+            float remaining = Mathf.Clamp(rerollTimeLimit - rerollTimer, 0f, rerollTimeLimit);
+
+            if (selectionTimerText != null)
+            {
+                selectionTimerText.text = $"リロール残り時間: {Mathf.CeilToInt(remaining)}秒";
+            }
+
+            if (Input.GetKeyDown(KeyCode.R)) p1WantsReroll = true;
+            if (Input.GetKeyDown(KeyCode.Return)) p2WantsReroll = true;
+
+            if (rerollTimer >= rerollTimeLimit)
+            {
+                isRerollTimerRunning = false;
+                EnterRerollSelectionPhase();
+            }
+
+            // ✅ 注意：リロール中は選択タイマー動かさない
+            return;
         }
 
         // ▼ 選択フェーズの制限時間処理
@@ -180,8 +213,6 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
-
 
     // プレイヤーがカード選択を終えた時に呼ばれる
     void OnPlayerSelectionComplete(int playerId, List<Card> selectedCards)
@@ -449,7 +480,7 @@ public class BattleManager : MonoBehaviour
 
             roundResultText.text = $"Round {currentRound} Start!";
         }
-        StartSelectionPhase();
+        StartRerollPhase();
     }
 
 
@@ -704,6 +735,46 @@ public class BattleManager : MonoBehaviour
         seq.Append(popup.transform.DOMoveY(popup.transform.position.y + 5f, 0.8f).SetEase(Ease.OutQuad));
         seq.Join(popup.GetComponent<CanvasGroup>().DOFade(0f, 0.8f));
         seq.OnComplete(() => Destroy(popup));
+    }
+
+
+    void StartRerollPhase()
+    {
+        rerollTimer = 0f;
+        isRerollTimerRunning = true;
+        p1WantsReroll = false;
+        p2WantsReroll = false;
+
+        selectionTimerText.gameObject.SetActive(true); // UI表示
+
+        if (directionalCardSelector != null)
+        {
+            directionalCardSelector.canSelect = false; // リロール中は無効化
+        }
+        player1Selector.canSelect = false;
+        player2Selector.canSelect = false;
+    }
+
+    void EnterRerollSelectionPhase()
+    {
+        if (p1WantsReroll)
+            player1Selector.RefreshHand();
+
+        if (p2WantsReroll)
+            player2Selector.RefreshHand();
+
+        // UI消す or フェーズ切り替えの準備
+        selectionTimerText.gameObject.SetActive(false);
+
+        // 選択フェーズへ移行
+        StartSelectionPhase();
+
+        if (directionalCardSelector != null)
+        {
+            directionalCardSelector.canSelect = true; // 選択可能に戻す
+        }
+        player1Selector.canSelect = true;
+        player2Selector.canSelect = true;
     }
 
 }
