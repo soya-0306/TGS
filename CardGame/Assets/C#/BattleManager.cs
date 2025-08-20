@@ -322,8 +322,11 @@ public class BattleManager : MonoBehaviour
                     damagedPlayer = 2;
                     // ダメージパネルの表示をDoChargeAttack内に移動したのでここでは呼ばない
                     yield return StartCoroutine(DoChargeAttack(p1CardObj, p2CardObj, damagedPlayer));
-                    // Player1が勝った場合
-                    PlayCharacterAnimation(player1Character, c1.Type);
+                    //// Player1が勝った場合
+                    //PlayCharacterAnimation(player1Character, c1.Type);
+
+                    // 勝者のアニメーションと敗者のリアクションを一括で再生
+                    PlayBattleAnimations(player1Character, c1.Type, player2Character);
                 }
                 else if (c2.Beats(c1))
                 {
@@ -338,8 +341,11 @@ public class BattleManager : MonoBehaviour
                     damagedPlayer = 1;
                     // ダメージパネルの表示をDoChargeAttack内に移動したのでここでは呼ばない
                     yield return StartCoroutine(DoChargeAttack(p2CardObj, p1CardObj, damagedPlayer));
-                    // Player2が勝った場合
-                    PlayCharacterAnimation(player2Character, c2.Type);
+                    //// Player2が勝った場合
+                    //PlayCharacterAnimation(player2Character, c2.Type);
+
+                    // 勝者のアニメーションと敗者のリアクションを一括で再生
+                    PlayBattleAnimations(player2Character, c2.Type, player1Character);
                 }
                 else
                 {
@@ -629,15 +635,40 @@ public class BattleManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("TitleScene");
     }
 
-    private void PlayCharacterAnimation(GameObject character, CardType cardType)
+    //private void PlayCharacterAnimation(GameObject character, CardType cardType)
+    //{
+    //    if (character == null) return;
+
+    //    var animController = character.GetComponent<KeyAnimationController>();
+    //    if (animController == null) return;
+
+    //    animController.PlayCardAnimation(cardType); // 新しく作るメソッド
+    //    animController.PlayDamageAnimation();
+    //}
+
+    private void PlayBattleAnimations(GameObject winnerCharacter, CardType winnerCardType, GameObject loserCharacter)
     {
-        if (character == null) return;
+        // 攻撃アニメーション
+        if (winnerCharacter != null)
+        {
+            var winnerAnim = winnerCharacter.GetComponent<KeyAnimationController>();
+            if (winnerAnim != null)
+            {
+                winnerAnim.PlayCardAnimation(winnerCardType);
+            }
+        }
 
-        var animController = character.GetComponent<KeyAnimationController>();
-        if (animController == null) return;
-
-        animController.PlayCardAnimation(cardType); // 新しく作るメソッド
+        // ダメージアニメーション
+        if (loserCharacter != null)
+        {
+            var loserAnim = loserCharacter.GetComponent<KeyAnimationController>();
+            if (loserAnim != null)
+            {
+                loserAnim.PlayDamageAnimation();
+            }
+        }
     }
+
 
     private IEnumerator DoDrawEffect(GameObject card1, GameObject card2)
     {

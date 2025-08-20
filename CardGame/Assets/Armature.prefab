@@ -220,12 +220,15 @@ MonoBehaviour:
   FightClip: {fileID: -3119484255079415707, guid: cac4c62d88caec6468453ff6cb391714, type: 3}
   WeaponClip: {fileID: 4930656767807149202, guid: 96af4a739d19ae047be3f828e499176e, type: 3}
   MagicClip: {fileID: 426716804575868071, guid: b3146b291aa8c8b43a9c3c6181528153, type: 3}
+  DamageClip: {fileID: 0}
   FightEffect: {fileID: 7458564200767833722, guid: 14dfd592f3ca9a3408b3d35c004ea0ec, type: 3}
   WeaponEffect: {fileID: 3093370748363751238, guid: 76cdbc7b4e493b540a4c8f4d598e0a5b, type: 3}
   MagicEffect: {fileID: 7914662257891743077, guid: 3c0de2607c58f0d4ebfd659a38b10aa7, type: 3}
+  DamageEffect: {fileID: 0}
   FightEffectSpawnPoint: {fileID: 7923839482067410728}
   WeaponEffectSpawnPoint: {fileID: 8147363810036425172}
   MagicEffectSpawnPoint: {fileID: 2267054262958849680}
+  DamageEffectSpawnPoint: {fileID: 4721530012824494024, guid: f7b894c480de0c9489822e431a70fe51, type: 3}
 --- !u!143 &1390193900682153045
 CharacterController:
   m_ObjectHideFlags: 0

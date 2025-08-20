@@ -149,4 +149,16 @@ public class KeyAnimationController : MonoBehaviour
         }
     }
 
+    public void PlayDamageAnimation()
+    {
+        if (DamageClip != null)
+        {
+            PlayAnimation(DamageClip.name, DamageClip.length);
+        }
+
+        if (DamageEffect != null && DamageEffectSpawnPoint != null)
+        {
+            PlayEffect(DamageEffect, DamageEffectSpawnPoint);
+        }
+    }
 }
