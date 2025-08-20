@@ -431,12 +431,15 @@ MonoBehaviour:
   FightClip: {fileID: -3119484255079415707, guid: cac4c62d88caec6468453ff6cb391714, type: 3}
   WeaponClip: {fileID: 4930656767807149202, guid: 96af4a739d19ae047be3f828e499176e, type: 3}
   MagicClip: {fileID: 426716804575868071, guid: b3146b291aa8c8b43a9c3c6181528153, type: 3}
+  DamageClip: {fileID: 0}
   FightEffect: {fileID: 7458564200767833722, guid: 14dfd592f3ca9a3408b3d35c004ea0ec, type: 3}
   WeaponEffect: {fileID: 3093370748363751238, guid: 76cdbc7b4e493b540a4c8f4d598e0a5b, type: 3}
   MagicEffect: {fileID: 7914662257891743077, guid: 3c0de2607c58f0d4ebfd659a38b10aa7, type: 3}
+  DamageEffect: {fileID: 0}
   FightEffectSpawnPoint: {fileID: 211608026}
   WeaponEffectSpawnPoint: {fileID: 219335033}
   MagicEffectSpawnPoint: {fileID: 1758389267}
+  DamageEffectSpawnPoint: {fileID: 0}
 --- !u!143 &308335297
 CharacterController:
   m_ObjectHideFlags: 0
@@ -485,15 +488,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IdleClip: {fileID: 1827226128182048838, guid: 44ecfcb4b95932741b653117e708b78b, type: 3}
-  FightClip: {fileID: 1827226128182048838, guid: 63c19158fa6c69a489bc92a4c996e681, type: 3}
-  WeaponClip: {fileID: 0}
-  MagicClip: {fileID: 0}
-  FightEffect: {fileID: 5099431166652583641, guid: 8c51410e4f579f34f84ac8580fc8ece9, type: 3}
-  WeaponEffect: {fileID: 0}
+  FightClip: {fileID: 1827226128182048838, guid: 41bdd0581430cb64686f27078206c78f, type: 3}
+  WeaponClip: {fileID: 1827226128182048838, guid: 63c19158fa6c69a489bc92a4c996e681, type: 3}
+  MagicClip: {fileID: 1827226128182048838, guid: f69de7fa15e83e04ab0159a2cc347f84, type: 3}
+  DamageClip: {fileID: 1827226128182048838, guid: 729995bd0102aeb4cbd5854fecb09a8f, type: 3}
+  FightEffect: {fileID: 0}
+  WeaponEffect: {fileID: 5099431166652583641, guid: 8c51410e4f579f34f84ac8580fc8ece9, type: 3}
   MagicEffect: {fileID: 0}
-  FightEffectSpawnPoint: {fileID: 1905032623}
-  WeaponEffectSpawnPoint: {fileID: 0}
+  DamageEffect: {fileID: 0}
+  FightEffectSpawnPoint: {fileID: 0}
+  WeaponEffectSpawnPoint: {fileID: 1905032623}
   MagicEffectSpawnPoint: {fileID: 0}
+  DamageEffectSpawnPoint: {fileID: 0}
 --- !u!95 &947316884
 Animator:
   serializedVersion: 7

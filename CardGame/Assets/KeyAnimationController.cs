@@ -9,16 +9,19 @@ public class KeyAnimationController : MonoBehaviour
     public AnimationClip FightClip;
     public AnimationClip WeaponClip;
     public AnimationClip MagicClip;
+    public AnimationClip DamageClip;
 
     [Header("エフェクト")]
     public GameObject FightEffect;
     public GameObject WeaponEffect;
     public GameObject MagicEffect;
+    public GameObject DamageEffect;
 
     [Header("エフェクトスポーンポイント")]
     public Transform FightEffectSpawnPoint;
     public Transform WeaponEffectSpawnPoint;
     public Transform MagicEffectSpawnPoint;
+    public Transform DamageEffectSpawnPoint;
 
     private GameObject currentEffectInstance = null;
     private float currentAnimEndTime = 0f;
@@ -36,6 +39,7 @@ public class KeyAnimationController : MonoBehaviour
         AddClipIfNeeded(FightClip, WrapMode.Once);
         AddClipIfNeeded(WeaponClip, WrapMode.Once);
         AddClipIfNeeded(MagicClip, WrapMode.Once);
+        AddClipIfNeeded (DamageClip, WrapMode.Once);
 
         if (IdleClip != null)
         {
@@ -66,6 +70,11 @@ public class KeyAnimationController : MonoBehaviour
         {
             PlayAnimation(MagicClip.name, MagicClip.length);
             PlayEffect(MagicEffect, MagicEffectSpawnPoint);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && DamageClip != null)
+        {
+            PlayAnimation(DamageClip.name, DamageClip.length);
+            PlayEffect(DamageEffect, DamageEffectSpawnPoint);
         }
     }
 
