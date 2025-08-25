@@ -9,8 +9,8 @@ public class TwoPlayerUISelector : MonoBehaviour
     public List<Selectable> uiElements;
 
     [Header("Highlight Images (UI選択枠)")]
-    public Image player1CursorHighlight;
-    public Image player2CursorHighlight;
+    public GameObject player1CursorHighlight;
+    public GameObject player2CursorHighlight;
 
     [Header("操作カーソル Images (自由移動)")]
     public RectTransform player1Cursor;
@@ -87,13 +87,17 @@ public class TwoPlayerUISelector : MonoBehaviour
     {
         if (uiElements.Count == 0) return;
 
-        Image cursorHighlight = (playerIndex == 0) ? player1CursorHighlight : player2CursorHighlight;
+        GameObject cursorHighlight = (playerIndex == 0) ? player1CursorHighlight : player2CursorHighlight;
 
         if (cursorHighlight != null && canMove[playerIndex])
         {
             Selectable selectedElement = uiElements[currentIndices[playerIndex]];
             cursorHighlight.transform.position = selectedElement.transform.position;
-            cursorHighlight.enabled = true;
+
+            // Imageコンポーネントがあるなら有効化
+            Image image = cursorHighlight.GetComponent<Image>();
+            if (image != null) image.enabled = true;
+            else cursorHighlight.SetActive(true);  // Imageがなければオブジェクトごと表示
 
             if (playerIndex == 0 && targetImageForPlayer1 != null)
             {
@@ -108,7 +112,10 @@ public class TwoPlayerUISelector : MonoBehaviour
         }
         else if (cursorHighlight != null)
         {
-            cursorHighlight.enabled = false;
+            // Imageがあるなら非表示、なければ GameObject 非アクティブ
+            Image image = cursorHighlight.GetComponent<Image>();
+            if (image != null) image.enabled = false;
+            else cursorHighlight.SetActive(false);
 
             if (playerIndex == 0 && targetImageForPlayer1 != null && wasPlayer1OnTarget)
             {

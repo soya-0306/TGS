@@ -425,11 +425,11 @@ public class BattleManager : MonoBehaviour
             currentRound++;
 
             if (player1HP.currentHP > player2HP.currentHP)
-                resultTextStr = "Player 1 の勝利！Bボタンでタイトルに戻る";
+                resultTextStr = "Player 1 の勝利！\nBボタンでタイトルに戻る";
             else if (player2HP.currentHP > player1HP.currentHP)
-                resultTextStr = "Player 2 の勝利！Bボタンでタイトルに戻る";
+                resultTextStr = "Player 2 の勝利！\nBボタンでタイトルに戻る";
             else
-                resultTextStr = "引き分け！Bボタンでタイトルに戻る";
+                resultTextStr = "引き分け！\nBボタンでタイトルに戻る";
 
             // GameResultManager にテキスト保存（ResultSceneで使う）
             if (GameResultManager.Instance != null)
