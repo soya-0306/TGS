@@ -31,6 +31,9 @@ public class DeckDefinition : ScriptableObject
 
     [Header("デッキキャラクター")]
     public GameObject deckCharacterPrefab; // キャラクターのPrefabをここにセットできるように
+
+    [Header("コンボリスト画像")]
+    public Sprite comboListImage;
 }
 
 public class GenericComboManager
