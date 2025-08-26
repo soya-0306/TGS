@@ -1919,6 +1919,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4824547694514305388, guid: ef7f4b9425436ff48aaf2d8079a6e322, type: 3}
+      propertyPath: deck
+      value: 
+      objectReference: {fileID: 11400000, guid: fd2693d26a40391419fcf2cd76097863, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4048031314351894584, guid: ef7f4b9425436ff48aaf2d8079a6e322, type: 3}
@@ -1933,6 +1937,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1096252590}
     m_Modifications:
+    - target: {fileID: 2700839202244303103, guid: ed82f474da286184e9eff83c00b344cd, type: 3}
+      propertyPath: deck
+      value: 
+      objectReference: {fileID: 11400000, guid: be7966a0bd7078f409c494af6fbf09a2, type: 2}
     - target: {fileID: 5445138245553259289, guid: ed82f474da286184e9eff83c00b344cd, type: 3}
       propertyPath: m_Name
       value: Jenetan
@@ -2163,6 +2171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6321894563651390520, guid: 4d9bb12618d9a734ba58c5a090c6b5ea, type: 3}
+      propertyPath: buttonClickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3b032a3674e25f419568a89b3274974, type: 3}
     - target: {fileID: 6753439636842217463, guid: 4d9bb12618d9a734ba58c5a090c6b5ea, type: 3}
       propertyPath: m_Name
       value: STARTButton
@@ -2299,6 +2311,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7734537725094612399, guid: 7163d49c65ef47848ba089fb870bcdeb, type: 3}
+      propertyPath: deck
+      value: 
+      objectReference: {fileID: 11400000, guid: f5d59b99b1945c64799d0cd7b26b8362, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 443122154125709592, guid: 7163d49c65ef47848ba089fb870bcdeb, type: 3}
