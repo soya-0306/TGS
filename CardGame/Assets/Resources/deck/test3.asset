@@ -28,3 +28,6 @@ MonoBehaviour:
     damageMultiplier: 3
     effectID: 0
     isOrderless: 0
+  genericCombos: []
+  deckCharacterPrefab: {fileID: 910367790453255035, guid: ffc2f69b038ff924c89ec3942b667ad6, type: 3}
+  comboListImage: {fileID: 21300000, guid: 9beef6626e808f04aae99a4bac534a80, type: 3}
