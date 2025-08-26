@@ -1,8 +1,27 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
+public class EffectTiming
+{
+    public GameObject effectPrefab;
+    public Transform spawnPoint;
+    public float startTime = 0f; // エフェクト開始までの遅延(秒)
+    public float endTime = 1f;   // 開始から何秒後に消すか
+}
+
 public class KeyAnimationController : MonoBehaviour
 {
     private Animation anim;
+    private AudioSource audioSource;
+
+    private float currentAnimEndTime = 0f;
+    private float sePlayTime = -1f;
+    private AudioClip pendingSE = null;
+
+    private GameObject currentEffectInstance = null;
+    private float effectStartTime = -1f;
+    private float effectEndTime = -1f;
+    private EffectTiming pendingEffect = null;
 
     [Header("アニメーションクリップ")]
     public AnimationClip IdleClip;
@@ -10,65 +29,44 @@ public class KeyAnimationController : MonoBehaviour
     public AnimationClip WeaponClip;
     public AnimationClip MagicClip;
     public AnimationClip DamageClip;
+    public AnimationClip ShieldClip;
 
-    [Header("エフェクト")]
-    public GameObject FightEffect;
-    public GameObject WeaponEffect;
-    public GameObject MagicEffect;
-    public GameObject DamageEffect;
-
-    [Header("エフェクトスポーンポイント")]
-    public Transform FightEffectSpawnPoint;
-    public Transform WeaponEffectSpawnPoint;
-    public Transform MagicEffectSpawnPoint;
-    public Transform DamageEffectSpawnPoint;
-
-    [Header("サウンドエフェクト (SE)")]
+    [Header("SE設定")]
     public AudioClip FightSE;
-    public AudioClip WeaponSE;
-    public AudioClip MagicSE;
-    public AudioClip DamageSE;
-
     public float WaitFightSE;
+    public AudioClip WeaponSE;
     public float WaitWeaponSE;
+    public AudioClip MagicSE;
     public float WaitMagicSE;
+    public AudioClip DamageSE;
     public float WaitDamageSE;
+    public AudioClip ShieldSE;
+    public float WaitShieldSE;
 
-    private GameObject currentEffectInstance = null;
-    private float currentAnimEndTime = 0f;
-    private AudioSource audioSource;
-
-    // SE再生制御用
-    private float sePlayTime = -1f;
-    private AudioClip pendingSE = null;
+    [Header("エフェクト設定")]
+    public EffectTiming FightEffect;
+    public EffectTiming WeaponEffect;
+    public EffectTiming MagicEffect;
+    public EffectTiming DamageEffect;
+    public EffectTiming ShieldEffect;
 
     void Awake()
     {
         anim = GetComponent<Animation>();
-        if (anim == null)
-        {
-            anim = gameObject.AddComponent<Animation>();
-            Debug.LogWarning("Animation コンポーネントがなかったので追加しました。");
-        }
+        if (anim == null) anim = gameObject.AddComponent<Animation>();
 
-        // AudioSource がなければ追加
         audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.playOnAwake = false;
-        }
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
 
         AddClipIfNeeded(IdleClip, WrapMode.Loop);
         AddClipIfNeeded(FightClip, WrapMode.Once);
         AddClipIfNeeded(WeaponClip, WrapMode.Once);
         AddClipIfNeeded(MagicClip, WrapMode.Once);
         AddClipIfNeeded(DamageClip, WrapMode.Once);
+        AddClipIfNeeded (ShieldClip, WrapMode.Once);
 
-        if (IdleClip != null)
-        {
-            anim.Play(IdleClip.name);
-        }
+        if (IdleClip != null) anim.Play(IdleClip.name);
     }
 
     void Update()
@@ -80,41 +78,40 @@ public class KeyAnimationController : MonoBehaviour
             StopCurrentEffect();
         }
 
-        // SEの再生タイミングを監視
+        // SE再生タイミング
         if (pendingSE != null && Time.time >= sePlayTime)
         {
             PlaySE(pendingSE);
             pendingSE = null;
         }
 
-        // キー入力でテスト
-        if (Input.GetKeyDown(KeyCode.Alpha1) && FightClip != null)
+        // エフェクト開始
+        if (pendingEffect != null && Time.time >= effectStartTime && currentEffectInstance == null)
         {
-            PlayAnimationWithSE(FightClip, FightEffect, FightEffectSpawnPoint, FightSE, WaitFightSE); // 0.4秒後にSE
+            PlayEffect(pendingEffect);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && WeaponClip != null)
+
+        // エフェクト終了
+        if (currentEffectInstance != null && Time.time >= effectEndTime)
         {
-            PlayAnimationWithSE(WeaponClip, WeaponEffect, WeaponEffectSpawnPoint, WeaponSE, WaitWeaponSE);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && MagicClip != null)
-        {
-            PlayAnimationWithSE(MagicClip, MagicEffect, MagicEffectSpawnPoint, MagicSE, WaitMagicSE);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && DamageClip != null)
-        {
-            PlayAnimationWithSE(DamageClip, DamageEffect, DamageEffectSpawnPoint, DamageSE, WaitDamageSE);
+            StopCurrentEffect();
         }
     }
 
-    // 🔑 アニメーションとSE再生タイミングをまとめて制御
-    private void PlayAnimationWithSE(AnimationClip clip, GameObject effect, Transform spawnPoint, AudioClip seClip, float seDelay)
+    private void PlayAnimationWithSE(AnimationClip clip, EffectTiming effectTiming, AudioClip seClip, float seDelay)
     {
         anim.Play(clip.name);
         currentAnimEndTime = Time.time + clip.length;
 
-        PlayEffect(effect, spawnPoint);
+        // エフェクトのスケジュール
+        if (effectTiming != null && effectTiming.effectPrefab != null)
+        {
+            pendingEffect = effectTiming;
+            effectStartTime = Time.time + effectTiming.startTime;
+            effectEndTime = Time.time + effectTiming.endTime;
+        }
 
-        // SE再生タイミングをセット
+        // SEスケジュール
         if (seClip != null)
         {
             sePlayTime = Time.time + seDelay;
@@ -122,24 +119,16 @@ public class KeyAnimationController : MonoBehaviour
         }
     }
 
-    private void PlayEffect(GameObject effectPrefab, Transform spawnPoint)
+    private void PlayEffect(EffectTiming effectTiming)
     {
         StopCurrentEffect();
 
-        if (effectPrefab != null && spawnPoint != null)
+        if (effectTiming.effectPrefab != null && effectTiming.spawnPoint != null)
         {
-            currentEffectInstance = Instantiate(effectPrefab, spawnPoint.position, Quaternion.identity);
-
-            // キャラに追従
-            currentEffectInstance.transform.SetParent(spawnPoint);
+            currentEffectInstance = Instantiate(effectTiming.effectPrefab, effectTiming.spawnPoint.position, Quaternion.identity);
+            currentEffectInstance.transform.SetParent(effectTiming.spawnPoint);
             currentEffectInstance.transform.localPosition = Vector3.zero;
-
-            // スケール調整
-            float baseScale = 1.0f;
-            Vector3 parentScale = spawnPoint.lossyScale;
-            float averageScale = (parentScale.x + parentScale.y + parentScale.z) / 3f;
-
-            currentEffectInstance.transform.localScale = Vector3.one * baseScale * averageScale;
+            currentEffectInstance.transform.localScale = Vector3.one;
         }
     }
 
@@ -172,31 +161,25 @@ public class KeyAnimationController : MonoBehaviour
         }
     }
 
+    // 呼び出し例
     public void PlayCardAnimation(CardType type)
     {
         switch (type)
         {
             case CardType.Rock:
-                PlayAnimationWithSE(FightClip, FightEffect, FightEffectSpawnPoint, FightSE, WaitFightSE);
+                PlayAnimationWithSE(FightClip, FightEffect, FightSE, WaitFightSE);
                 break;
             case CardType.Paper:
-                PlayAnimationWithSE(WeaponClip, WeaponEffect, WeaponEffectSpawnPoint, WeaponSE, WaitWeaponSE);
+                PlayAnimationWithSE(WeaponClip, WeaponEffect, WeaponSE, WaitWeaponSE);
                 break;
             case CardType.Scissors:
-                PlayAnimationWithSE(MagicClip, MagicEffect, MagicEffectSpawnPoint, MagicSE, WaitMagicSE);
-                break;
-            default:
+                PlayAnimationWithSE(MagicClip, MagicEffect, MagicSE, WaitMagicSE);
                 break;
         }
     }
 
     public void PlayDamageAnimation()
     {
-        if (DamageClip != null)
-        {
-            PlayAnimationWithSE(DamageClip, DamageEffect, DamageEffectSpawnPoint, DamageSE, WaitDamageSE);
-        }
+        PlayAnimationWithSE(DamageClip, DamageEffect, DamageSE, WaitDamageSE);
     }
-
 }
-
