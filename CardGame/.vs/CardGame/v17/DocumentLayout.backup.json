@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "D:\\240681\\Unity\\CardGame\\CardGame\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240681\\Unity\\CardGame\\CardGame\\assets\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -29,6 +30,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240681\\Unity\\CardGame\\CardGame\\assets\\c#\\resultscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\resultscenecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240681\\unity\\cardgame\\cardgame\\assets\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 47c047cafd83a4246bbf294334dded965626756d
     }
   ],
   "DocumentGroupContainers": [
@@ -38,6 +43,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 6,
           "Children": [
             {
@@ -116,15 +122,27 @@
             },
             {
               "$type": "Document",
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+>>>>>>> 47c047cafd83a4246bbf294334dded965626756d
               "DocumentIndex": 0,
               "Title": "KeyAnimationController.cs",
               "DocumentMoniker": "D:\\240681\\Unity\\CardGame\\CardGame\\Assets\\KeyAnimationController.cs",
               "RelativeDocumentMoniker": "Assets\\KeyAnimationController.cs",
               "ToolTip": "D:\\240681\\Unity\\CardGame\\CardGame\\Assets\\KeyAnimationController.cs",
               "RelativeToolTip": "Assets\\KeyAnimationController.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAALYAAAAAAAAAAAAQwMcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-20T02:29:48.709Z",
+=======
+              "ViewState": "AgIAAF8AAAAAAAAAAAAswHEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T06:34:11.382Z",
+>>>>>>> 47c047cafd83a4246bbf294334dded965626756d
               "EditorCaption": ""
             }
           ]
