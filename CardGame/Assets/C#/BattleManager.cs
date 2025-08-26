@@ -8,6 +8,7 @@ using static SelectionCounterUI;
 using System;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // ゲームの進行（フェーズ管理・じゃんけん処理・HP管理・コンボ処理）を司るメインクラス
 public class BattleManager : MonoBehaviour
@@ -105,6 +106,18 @@ public class BattleManager : MonoBehaviour
     public GameObject damagePopupPrefab; // 吹き出しプレハブ
     public Vector3 damagePopupOffset = new Vector3(0f, 100f, 0f); // カードからのオフセット位置
     private int lastDamageAmount = 0; // 最後に発生したダメージ
+
+    [Header("コンボリスト")]
+    public Transform player1ComboListParent;  // 1P用のUI親
+    public Transform player2ComboListParent;  // 2P用のUI親
+
+    public GameObject comboListUIPrefab;  // Imageコンポを持ったPrefab
+
+    private GameObject player1ComboListUIInstance;
+    private GameObject player2ComboListUIInstance;
+
+    public AudioClip damageSound;  // 体力が減ったときの音（後からインスペクターでセット）
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -212,6 +225,18 @@ public class BattleManager : MonoBehaviour
                 ForceSelectRemainingCards();
             }
         }
+
+        // Qキーで1Pのコンボリスト表示切替
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ToggleComboListUI(1);
+        }
+
+        // Deleteキーで2Pのコンボリスト表示切替
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            ToggleComboListUI(2);
+        }
     }
 
     // プレイヤーがカード選択を終えた時に呼ばれる
@@ -238,6 +263,10 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
 
     // バトルフェーズ：1ラウンド4回のじゃんけんを実行
     IEnumerator BattlePhase()
@@ -327,6 +356,17 @@ public class BattleManager : MonoBehaviour
 
                     // 勝者のアニメーションと敗者のリアクションを一括で再生
                     PlayBattleAnimations(player1Character, c1.Type, player2Character);
+
+                    // 音を鳴らす
+                    if (damageSound != null)
+                    {
+                        audioSource.PlayOneShot(damageSound);
+                        Debug.Log("🔊 プレイヤー1が勝利、ダメージ音再生");
+                    }
+                    else
+                    {
+                        Debug.Log("⚠️ damageSoundが未設定のため、音は再生されませんでした。");
+                    }
                 }
                 else if (c2.Beats(c1))
                 {
@@ -346,6 +386,17 @@ public class BattleManager : MonoBehaviour
 
                     // 勝者のアニメーションと敗者のリアクションを一括で再生
                     PlayBattleAnimations(player2Character, c2.Type, player1Character);
+
+                    // 音を鳴らす
+                    if (damageSound != null)
+                    {
+                        audioSource.PlayOneShot(damageSound);
+                        Debug.Log("🔊 プレイヤー2が勝利、ダメージ音再生");
+                    }
+                    else
+                    {
+                        Debug.Log("⚠️ damageSoundが未設定のため、音は再生されませんでした。");
+                    }
                 }
                 else
                 {
@@ -808,4 +859,95 @@ public class BattleManager : MonoBehaviour
         player2Selector.canSelect = true;
     }
 
+    void ToggleComboListUI(int playerId)
+    {
+        if (playerId == 1)
+        {
+            if (player1ComboListUIInstance == null)
+            {
+                player1ComboListUIInstance = Instantiate(comboListUIPrefab, player1ComboListParent, false);
+                player1ComboListUIInstance.transform.localPosition = new Vector3(-Screen.width, 0, -10f);
+
+                RectTransform rt = player1ComboListUIInstance.GetComponent<RectTransform>();
+                if (rt != null)
+                {
+                    rt.anchorMin = Vector2.zero;
+                    rt.anchorMax = Vector2.one;
+                    rt.sizeDelta = Vector2.zero;
+                    rt.anchoredPosition = Vector2.zero;
+                    rt.localScale = Vector3.one;
+                }
+
+                var image = player1ComboListUIInstance.GetComponent<Image>();
+                if (image != null && player1Deck != null)
+                {
+                    image.sprite = player1Deck.comboListImage;
+                }
+
+                player1ComboListUIInstance.SetActive(true);
+                player1ComboListUIInstance.transform.SetAsLastSibling(); // ここで親の中で一番上に
+
+                player1ComboListUIInstance.transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.OutCubic);
+            }
+            else
+            {
+                if (player1ComboListUIInstance.activeSelf)
+                {
+                    player1ComboListUIInstance.transform.DOLocalMove(new Vector3(-Screen.width, 0, 0), 0.5f)
+                        .SetEase(Ease.InCubic)
+                        .OnComplete(() => player1ComboListUIInstance.SetActive(false));
+                }
+                else
+                {
+                    player1ComboListUIInstance.SetActive(true);
+                    player1ComboListUIInstance.transform.SetAsLastSibling(); // 再表示時も前面に
+                    player1ComboListUIInstance.transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.OutCubic);
+                }
+            }
+        }
+        else if (playerId == 2)
+        {
+            if (player2ComboListUIInstance == null)
+            {
+                player2ComboListUIInstance = Instantiate(comboListUIPrefab, player2ComboListParent, false);
+                player2ComboListUIInstance.transform.localPosition = new Vector3(-Screen.width, 0, -10f);
+
+                RectTransform rt = player2ComboListUIInstance.GetComponent<RectTransform>();
+                if (rt != null)
+                {
+                    rt.anchorMin = Vector2.zero;
+                    rt.anchorMax = Vector2.one;
+                    rt.sizeDelta = Vector2.zero;
+                    rt.anchoredPosition = Vector2.zero;
+                    rt.localScale = Vector3.one;
+                }
+
+                var image = player2ComboListUIInstance.GetComponent<Image>();
+                if (image != null && player2Deck != null)
+                {
+                    image.sprite = player2Deck.comboListImage;
+                }
+
+                player2ComboListUIInstance.SetActive(true);
+                player2ComboListUIInstance.transform.SetAsLastSibling();
+
+                player2ComboListUIInstance.transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.OutCubic);
+            }
+            else
+            {
+                if (player2ComboListUIInstance.activeSelf)
+                {
+                    player2ComboListUIInstance.transform.DOLocalMove(new Vector3(Screen.width, 0, 0), 0.5f)
+                        .SetEase(Ease.InCubic)
+                        .OnComplete(() => player2ComboListUIInstance.SetActive(false));
+                }
+                else
+                {
+                    player2ComboListUIInstance.SetActive(true);
+                    player2ComboListUIInstance.transform.SetAsLastSibling(); // 再表示時も最前面に
+                    player2ComboListUIInstance.transform.DOLocalMove(Vector3.zero, 0.5f).SetEase(Ease.OutCubic);
+                }
+            }
+        }
+    }
 }

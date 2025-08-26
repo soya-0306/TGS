@@ -1,9 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class DeckSelectUI : MonoBehaviour
 {
+    public AudioClip buttonClickSound;  // インスペクターで設定する
+    private AudioSource audioSource;
+
     //public DeckDefinition deck1;
     //public DeckDefinition deck2;
 
@@ -29,9 +33,31 @@ public class DeckSelectUI : MonoBehaviour
     //{
     //    SceneManager.LoadScene("BattleScene");
     //}
+    private void Awake()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
+
+    private IEnumerator PlaySEAndLoadScene()
+    {
+        if (buttonClickSound != null)
+        {
+            audioSource.PlayOneShot(buttonClickSound);
+            Debug.Log("🔊 ボタンクリック音再生");
+
+            // SEが終わるまで待つ
+            yield return new WaitForSeconds(buttonClickSound.length);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ buttonClickSoundが未設定です。SEなしでシーン遷移します。");
+        }
+
+        SceneManager.LoadScene("BattleScene");
+    }
 
     public void OnClick()
     {
-        SceneManager.LoadScene("BattleScene");
+        StartCoroutine(PlaySEAndLoadScene());
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Collections;
@@ -6,24 +6,27 @@ using DG.Tweening;
 
 public class SelectionCounterUI : MonoBehaviour
 {
-    public Image[] indicators;               // — Œü‚«ƒJ[ƒhUIiˆÃE–¾Ø‘Öj
-    public Transform centerTarget;           // ƒJ[ƒh‚ğˆÚ“®‚·‚é’†‰›ƒ^[ƒQƒbƒg
-    public CardSlotUI[] cardSlots;           // •\Œü‚«ƒJ[ƒh•\¦—pƒXƒƒbƒgi‡”Ô‚É•\¦j
+    public Image[] indicators;               // è£å‘ãã‚«ãƒ¼ãƒ‰UIï¼ˆæš—ãƒ»æ˜åˆ‡æ›¿ï¼‰
+    public Transform centerTarget;           // ã‚«ãƒ¼ãƒ‰ã‚’ç§»å‹•ã™ã‚‹ä¸­å¤®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ
+    public CardSlotUI[] cardSlots;           // è¡¨å‘ãã‚«ãƒ¼ãƒ‰è¡¨ç¤ºç”¨ã‚¹ãƒ­ãƒƒãƒˆï¼ˆé †ç•ªã«è¡¨ç¤ºï¼‰
 
     private Sprite darkSprite;
     private Sprite brightSprite;
 
     private Card[] selectedCards;
 
-    private Vector3[] originalPositions;         // indicators‚ÌŒ³‚ÌlocalPosition
-    private Vector3[] cardSlotsOriginalPositions; // cardSlots‚ÌŒ³‚ÌlocalPosition
+    private Vector3[] originalPositions;         // indicatorsã®å…ƒã®localPosition
+    private Vector3[] cardSlotsOriginalPositions; // cardSlotsã®å…ƒã®localPosition
 
     private Sprite transparentSprite;
 
-    private Transform[] cardSlotsOriginalParents;  // Œ³‚Ìe
-    private Vector3[] cardSlotsOriginalScales;     // Œ³‚ÌƒXƒP[ƒ‹
+    private Transform[] cardSlotsOriginalParents;  // å…ƒã®è¦ª
+    private Vector3[] cardSlotsOriginalScales;     // å…ƒã®ã‚¹ã‚±ãƒ¼ãƒ«
 
-    private Vector3[] originalScales; // © new: indicators‚ÌŒ³‚ÌlocalScale
+    private Vector3[] originalScales; // â† new: indicatorsã®å…ƒã®localScale
+
+    public AudioClip flipSound;
+    private AudioSource audioSource;
 
     void Awake()
     {
@@ -32,10 +35,10 @@ public class SelectionCounterUI : MonoBehaviour
 
         if (darkSprite == null || brightSprite == null)
         {
-            Debug.LogError("ƒXƒvƒ‰ƒCƒg‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½B");
+            Debug.LogError("ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
         }
 
-        // indicators‚ÌŒ³ˆÊ’u(localPosition)‚ğ•Û‘¶
+        // indicatorsã®å…ƒä½ç½®(localPosition)ã‚’ä¿å­˜
         originalPositions = new Vector3[indicators.Length];
         for (int i = 0; i < indicators.Length; i++)
         {
@@ -43,7 +46,7 @@ public class SelectionCounterUI : MonoBehaviour
                 originalPositions[i] = indicators[i].transform.localPosition;
         }
 
-        // cardSlots‚ÌŒ³ˆÊ’u(localPosition)‚ğ•Û‘¶
+        // cardSlotsã®å…ƒä½ç½®(localPosition)ã‚’ä¿å­˜
         cardSlotsOriginalPositions = new Vector3[cardSlots.Length];
         for (int i = 0; i < cardSlots.Length; i++)
         {
@@ -51,12 +54,12 @@ public class SelectionCounterUI : MonoBehaviour
                 cardSlotsOriginalPositions[i] = cardSlots[i].transform.localPosition;
         }
 
-        // Šù‘¶‚ÌƒXƒvƒ‰ƒCƒg“Ç‚İ‚İ‚É’Ç‰Á
-        transparentSprite = Resources.Load<Sprite>("Sprites/“§‰ß‰æ‘œ");
+        // æ—¢å­˜ã®ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆèª­ã¿è¾¼ã¿ã«è¿½åŠ 
+        transparentSprite = Resources.Load<Sprite>("Sprites/é€éç”»åƒ");
 
         if (transparentSprite == null)
         {
-            Debug.LogError("“§‰ß‰æ‘œƒXƒvƒ‰ƒCƒg‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½BƒpƒX‚ª³‚µ‚¢‚©Šm”F‚µ‚Ä‚­‚¾‚³‚¢B");
+            Debug.LogError("é€éç”»åƒã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚ãƒ‘ã‚¹ãŒæ­£ã—ã„ã‹ç¢ºèªã—ã¦ãã ã•ã„ã€‚");
         }
 
         cardSlotsOriginalParents = new Transform[cardSlots.Length];
@@ -67,8 +70,8 @@ public class SelectionCounterUI : MonoBehaviour
             if (cardSlots[i] != null)
             {
                 cardSlotsOriginalPositions[i] = cardSlots[i].transform.localPosition;
-                cardSlotsOriginalParents[i] = cardSlots[i].transform.parent; // © e‚ğ‹L˜^I
-                cardSlotsOriginalScales[i] = cardSlots[i].transform.localScale; // © ƒXƒP[ƒ‹‚àI
+                cardSlotsOriginalParents[i] = cardSlots[i].transform.parent; // â† è¦ªã‚’è¨˜éŒ²ï¼
+                cardSlotsOriginalScales[i] = cardSlots[i].transform.localScale; // â† ã‚¹ã‚±ãƒ¼ãƒ«ã‚‚ï¼
             }
         }
 
@@ -78,11 +81,14 @@ public class SelectionCounterUI : MonoBehaviour
             if (indicators[i] != null)
             {
                 originalPositions[i] = indicators[i].transform.localPosition;
-                originalScales[i] = indicators[i].transform.localScale; // © ’Ç‰Á
+                originalScales[i] = indicators[i].transform.localScale; // â† è¿½åŠ 
             }
         }
 
         ResetIndicators();
+
+        // æ—¢å­˜å‡¦ç†ã®æœ€å¾Œã«è¿½åŠ 
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     public void ResetIndicators()
@@ -103,7 +109,7 @@ public class SelectionCounterUI : MonoBehaviour
     }
 
     /// <summary>
-    /// ŠO•”‚©‚çƒJ[ƒh‚Ì”z—ñ‚ğó‚¯æ‚éiƒJ[ƒh‘I‘ğ‚ÉŒÄ‚Ôj
+    /// å¤–éƒ¨ã‹ã‚‰ã‚«ãƒ¼ãƒ‰ã®é…åˆ—ã‚’å—ã‘å–ã‚‹ï¼ˆã‚«ãƒ¼ãƒ‰é¸æŠæ™‚ã«å‘¼ã¶ï¼‰
     /// </summary>
     public void SetSelectedCards(Card[] cards)
     {
@@ -111,9 +117,9 @@ public class SelectionCounterUI : MonoBehaviour
     }
 
     /// <summary>
-    /// — ƒJ[ƒh‚ğ’†‰›‚ÉˆÚ“®‚³‚¹A”ñ•\¦‚É‚µA‘Î‰‚·‚é•\ƒJ[ƒh‚ğ’†‰›‚©‚çŒ³‚ÌˆÊ’u‚É–ß‚·ƒAƒjƒ[ƒVƒ‡ƒ“
+    /// è£ã‚«ãƒ¼ãƒ‰ã‚’ä¸­å¤®ã«ç§»å‹•ã•ã›ã€éè¡¨ç¤ºã«ã—ã€å¯¾å¿œã™ã‚‹è¡¨ã‚«ãƒ¼ãƒ‰ã‚’ä¸­å¤®ã‹ã‚‰å…ƒã®ä½ç½®ã«æˆ»ã™ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
     /// </summary>
-    // ‡@ •\¦‚¾‚¯‚·‚éiˆÚ“®¨— ”ñ•\¦¨•\ƒJ[ƒh’†‰›•\¦j”»’è‘O‚Ü‚Å‚Ìˆ—
+    // â‘  è¡¨ç¤ºã ã‘ã™ã‚‹ï¼ˆç§»å‹•â†’è£éè¡¨ç¤ºâ†’è¡¨ã‚«ãƒ¼ãƒ‰ä¸­å¤®è¡¨ç¤ºï¼‰åˆ¤å®šå‰ã¾ã§ã®å‡¦ç†
     public IEnumerator RevealCard(int index, Action onComplete = null)
     {
         if (selectedCards == null || index >= selectedCards.Length || index >= indicators.Length)
@@ -131,19 +137,19 @@ public class SelectionCounterUI : MonoBehaviour
 
         cardBack.transform.SetAsLastSibling();
 
-        // Œ³‚ÌƒXƒP[ƒ‹‚ğ•Û‘¶i‚¢‚ç‚È‚¯‚ê‚Î1fŒÅ’è‚Å‚àOKj
+        // å…ƒã®ã‚¹ã‚±ãƒ¼ãƒ«ã‚’ä¿å­˜ï¼ˆã„ã‚‰ãªã‘ã‚Œã°1få›ºå®šã§ã‚‚OKï¼‰
         Vector3 originalScale = cardBack.transform.localScale;
 
-        // ’†‰›‚ÉˆÚ“®‚µ‚È‚ª‚çƒXƒP[ƒ‹ƒAƒbƒv
+        // ä¸­å¤®ã«ç§»å‹•ã—ãªãŒã‚‰ã‚¹ã‚±ãƒ¼ãƒ«ã‚¢ãƒƒãƒ—
         yield return DOTween.Sequence()
             .Join(cardBack.transform.DOMove(centerTarget.position, 0.5f))
             .Join(cardBack.transform.DOScale(originalScale * 1.5f, 0.5f))
             .WaitForCompletion();
 
-        // ‰ñ“]i‚ß‚­‚è‰‰oj
+        // å›è»¢ï¼ˆã‚ãã‚Šæ¼”å‡ºï¼‰
         yield return cardBack.transform.DORotate(new Vector3(0, 90, 0), 0.25f).WaitForCompletion();
 
-        // — ƒJ[ƒh”ñ•\¦‚É‚µ‚Ä•\ƒJ[ƒh•\¦
+        // è£ã‚«ãƒ¼ãƒ‰éè¡¨ç¤ºã«ã—ã¦è¡¨ã‚«ãƒ¼ãƒ‰è¡¨ç¤º
         cardBack.gameObject.SetActive(false);
 
         if (index < cardSlots.Length && cardSlots[index] != null)
@@ -156,14 +162,24 @@ public class SelectionCounterUI : MonoBehaviour
             slot.SetCard(selectedCards[index]);
             slot.gameObject.SetActive(true);
 
-            // •\ƒJ[ƒh‚àƒXƒP[ƒ‹ƒAƒbƒv‚µ‚½ó‘Ô‚©‚çƒXƒ^[ƒg
+            // è¡¨ã‚«ãƒ¼ãƒ‰ã‚‚ã‚¹ã‚±ãƒ¼ãƒ«ã‚¢ãƒƒãƒ—ã—ãŸçŠ¶æ…‹ã‹ã‚‰ã‚¹ã‚¿ãƒ¼ãƒˆ
             slot.transform.localScale = originalScale * 1.5f;
 
-            // ‰ñ“]‚µ‚Ä³–Ê‚É
+            // å›è»¢ã—ã¦æ­£é¢ã«
             yield return slot.transform.DOLocalRotate(Vector3.zero, 0.25f).WaitForCompletion();
         }
 
         onComplete?.Invoke();
+
+        if (flipSound != null)
+        {
+            audioSource.PlayOneShot(flipSound);
+            Debug.Log("ğŸ”Š ã‚«ãƒ¼ãƒ‰ã‚’ã‚ãã‚‹éŸ³ã‚’å†ç”Ÿã—ã¾ã—ãŸã€‚");
+        }
+        else
+        {
+            Debug.Log("âš ï¸ flipSound ãŒæœªè¨­å®šã®ãŸã‚ã€éŸ³ã¯å†ç”Ÿã•ã‚Œã¾ã›ã‚“ã§ã—ãŸã€‚");
+        }
     }
 
     public IEnumerator ReturnRevealedCard(int index, Action onComplete = null)
@@ -172,10 +188,10 @@ public class SelectionCounterUI : MonoBehaviour
         {
             var slot = cardSlots[index];
 
-            // 1. e‚ğŒ³‚É–ß‚·iƒYƒŒ‚ğ–h‚®j
+            // 1. è¦ªã‚’å…ƒã«æˆ»ã™ï¼ˆã‚ºãƒ¬ã‚’é˜²ãï¼‰
             slot.transform.SetParent(cardSlotsOriginalParents[index], false);
 
-            // 2. ƒXƒP[ƒ‹‚ÆˆÊ’u‚ğŒ³‚É–ß‚·
+            // 2. ã‚¹ã‚±ãƒ¼ãƒ«ã¨ä½ç½®ã‚’å…ƒã«æˆ»ã™
             yield return DOTween.Sequence()
                 .Join(slot.transform.DOLocalMove(cardSlotsOriginalPositions[index], 0.5f).SetEase(Ease.OutQuad))
                 .Join(slot.transform.DOScale(cardSlotsOriginalScales[index], 0.5f).SetEase(Ease.OutQuad))
@@ -232,12 +248,12 @@ public class SelectionCounterUI : MonoBehaviour
         {
             if (cardSlots[i] != null)
             {
-                cardSlots[i].SetCard(null); // –¼‘O‚âƒAƒCƒRƒ“‚ğƒŠƒZƒbƒg
+                cardSlots[i].SetCard(null); // åå‰ã‚„ã‚¢ã‚¤ã‚³ãƒ³ã‚’ãƒªã‚»ãƒƒãƒˆ
 
                 if (transparentSprite != null)
                     cardSlots[i].iconImage.sprite = transparentSprite;
 
-                cardSlots[i].gameObject.SetActive(false); // •\ƒJ[ƒhUI‚ğ”ñ•\¦‚É
+                cardSlots[i].gameObject.SetActive(false); // è¡¨ã‚«ãƒ¼ãƒ‰UIã‚’éè¡¨ç¤ºã«
             }
         }
     }
@@ -257,7 +273,7 @@ public class SelectionCounterUI : MonoBehaviour
         {
             if (indicators[i] != null)
             {
-                indicators[i].transform.localScale = originalScales[i]; // © Œ³ƒXƒP[ƒ‹‚É–ß‚·
+                indicators[i].transform.localScale = originalScales[i]; // â† å…ƒã‚¹ã‚±ãƒ¼ãƒ«ã«æˆ»ã™
             }
         }
     }

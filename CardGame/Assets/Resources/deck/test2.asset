@@ -53,5 +53,10 @@ MonoBehaviour:
     damageMultiplier: 2
     effectID: 0
     isOrderless: 0
+<<<<<<< HEAD
   deckCharacterPrefab: {fileID: 1370334377061842388, guid: f0d5ebfd4d9ff5545b3ee56fc2b13391, type: 3}
   comboListImage: {fileID: 0}
+=======
+  deckCharacterPrefab: {fileID: 910367790453255035, guid: ffc2f69b038ff924c89ec3942b667ad6, type: 3}
+  comboListImage: {fileID: 21300000, guid: dc616852ab1c12f43a9ae0f3ca515ed8, type: 3}
+>>>>>>> 8d01aa4287390a58483aa39ebee29c1488dbec49
