@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Zoom: 0.09294433
   m_ScrollPosition: {x: 4.1810927, y: -0.16513824}
   m_SelectedObject: {fileID: 0}
-  m_SelectedSpriteRectGUID: 5e97eb03825dee720800000000000000
+  m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: UnityEditor.U2D.Sprites.SpriteFrameModule
 --- !u!114 &14
 MonoBehaviour:
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 631
+    y: 576
     width: 1479
     height: 355
   m_SerializedDataModeController:
@@ -617,7 +617,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: aab30000
     m_LastClickedID: 45994
-    m_ExpandedIDs: 0000000028b30000a8b3000086c5000018c800003ed5000000ca9a3bffffff7f
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -646,7 +646,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000028b30000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -725,8 +725,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1480
-    y: 79
+    x: 1481
+    y: 24
     width: 439
     height: 907
   m_SerializedDataModeController:
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 323
     height: 526
   m_SerializedDataModeController:
@@ -792,23 +792,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 56fc0000
-      m_LastClickedID: 64598
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: d464fdffd664fdffb465fdff5e6ffdffac74fdffae74fdffb874fdff7491fdffa493fdff5014feff2e32feff6032feff7247feff2284feff7e40ffffccedffff16eeffffb6f5ffff04fbffff8eb40000f8b5000056c900009ec90000aeca0000beca00004acb000044cc00003cd300005cd3000070d300007cd3000082d30000bcd3000034f00000aaf200003efd0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 1PHP
-        m_OriginalName: 1PHP
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -166738
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 5}
@@ -840,8 +840,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 324
-    y: 79
+    x: 325
+    y: 24
     width: 1154
     height: 526
   m_SerializedDataModeController:
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.10509876, y: 0.0054126857, z: -0.0005110489, w: 0.99431753}
     speed: 2
-    m_Value: {x: 0.10511294, y: 0.0039217086, z: -0.0003534457, w: 0.99445254}
+    m_Value: {x: -0.10509876, y: -0.005412686, z: 0.0005110489, w: -0.99431753}
   m_Size:
     m_Target: 14.840598
     speed: 2
