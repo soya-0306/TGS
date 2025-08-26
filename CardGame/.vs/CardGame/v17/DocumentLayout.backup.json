@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240681\\unity\\cardgame\\cardgame\\assets\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240681\\unity\\cardgame\\cardgame\\assets\\keyinputcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\keyinputcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KeyInputController.cs",
+              "DocumentMoniker": "D:\\240681\\Unity\\CardGame\\CardGame\\Assets\\KeyInputController.cs",
+              "RelativeDocumentMoniker": "Assets\\KeyInputController.cs",
+              "ToolTip": "D:\\240681\\Unity\\CardGame\\CardGame\\Assets\\KeyInputController.cs",
+              "RelativeToolTip": "Assets\\KeyInputController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAIwCcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T07:10:39.351Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "Assets\\KeyAnimationController.cs",
               "ToolTip": "D:\\240681\\Unity\\CardGame\\CardGame\\Assets\\KeyAnimationController.cs",
               "RelativeToolTip": "Assets\\KeyAnimationController.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAswHEAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAKgAAAAAAAAAAADwv7YAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-26T06:34:11.382Z",
               "EditorCaption": ""

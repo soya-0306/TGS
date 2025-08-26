@@ -605,23 +605,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &1186210030 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1370334377061842388, guid: f0d5ebfd4d9ff5545b3ee56fc2b13391, type: 3}
-  m_PrefabInstance: {fileID: 55109631892467087}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1186210034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186210030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2111de1a28c20345ab74a37da9a27c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1200839189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 438f94ac06df330499eba95204ed3ee2, type: 3}
@@ -692,11 +675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2111de1a28c20345ab74a37da9a27c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1404909940 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1595901479273919110, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-  m_PrefabInstance: {fileID: 6663777293604069489}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1468022768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,23 +732,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3ae2779724c97f468ae34dd3c28a524, type: 3}
---- !u!1 &1591378053 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9186924836306480931, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-  m_PrefabInstance: {fileID: 6663777293604069489}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1591378057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591378053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2111de1a28c20345ab74a37da9a27c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &55109631892467087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -823,21 +784,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3711229669633272647, guid: f0d5ebfd4d9ff5545b3ee56fc2b13391, type: 3}
-      propertyPath: WeaponEffect.endTime
-      value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3711229669633272647, guid: f0d5ebfd4d9ff5545b3ee56fc2b13391, type: 3}
-      propertyPath: WeaponEffect.startTime
-      value: 0.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1370334377061842388, guid: f0d5ebfd4d9ff5545b3ee56fc2b13391, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1186210034}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0d5ebfd4d9ff5545b3ee56fc2b13391, type: 3}
 --- !u!1001 &6663777293604069489
 PrefabInstance:
@@ -847,46 +797,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: MagicSE
-      value: 
-      objectReference: {fileID: 8300000, guid: 6fe3e35237f50b747a951a19b253c73b, type: 3}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: DamageSE
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: WeaponSE
-      value: 
-      objectReference: {fileID: 8300000, guid: 1003399d94847ca43b9a39916d034931, type: 3}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: WaitFightSE
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: WeaponEffect.endTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: MagicEffect.spawnPoint
-      value: 
-      objectReference: {fileID: 1404909940}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: WeaponEffect.startTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: WeaponEffect.spawnPoint
-      value: 
-      objectReference: {fileID: 1404909940}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: MagicEffect.effectPrefab
-      value: 
-      objectReference: {fileID: 2089860787992684173, guid: 7ac53a0c1e23ef34093b70eec67c8878, type: 3}
-    - target: {fileID: 4274005420467979139, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      propertyPath: WeaponEffect.effectPrefab
-      value: 
-      objectReference: {fileID: 5099431166652583641, guid: 8c51410e4f579f34f84ac8580fc8ece9, type: 3}
     - target: {fileID: 8373691279224255897, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -934,10 +844,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9186924836306480931, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1591378057}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
