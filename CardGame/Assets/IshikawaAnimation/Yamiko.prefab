@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2289251425664614533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      propertyPath: m_Name
+      value: Yamiko
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3711229669633272647}
+  m_SourcePrefab: {fileID: 100100000, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+--- !u!1 &1370334377061842388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+  m_PrefabInstance: {fileID: 2289251425664614533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3711229669633272647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370334377061842388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228087e3576b8d94fb9b5dc6cce9caa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleClip: {fileID: 5598473573083599109, guid: 6e5ed9677ca0f73459f15b0148e8988c, type: 3}
+  FightClip: {fileID: 6228511215604996419, guid: 83903807a2fa8314a86963b38d14f093, type: 3}
+  WeaponClip: {fileID: 8098155298850189532, guid: df84d4cb88598964cb7688ae53d87714, type: 3}
+  MagicClip: {fileID: 2419618294518863923, guid: e3bb6338d65043644a92102ff1a45d4e, type: 3}
+  DamageClip: {fileID: -731559901273844988, guid: f2030a5200cb50a4b9bcae32da29a08f, type: 3}
+  FightEffect: {fileID: 0}
+  WeaponEffect: {fileID: 0}
+  MagicEffect: {fileID: 0}
+  DamageEffect: {fileID: 0}
+  FightEffectSpawnPoint: {fileID: 0}
+  WeaponEffectSpawnPoint: {fileID: 0}
+  MagicEffectSpawnPoint: {fileID: 0}
+  DamageEffectSpawnPoint: {fileID: 0}
