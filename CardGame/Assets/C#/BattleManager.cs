@@ -504,7 +504,7 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(2f); // 少し待ってから遷移
 
             // リザルト画面に移動
-            UnityEngine.SceneManagement.SceneManager.LoadScene("ResultScene");
+            FadeManager.Instance.LoadScene("ResultScene", 2.0f);
 
             yield break; // 処理終了（次ラウンドに行かない）
         }

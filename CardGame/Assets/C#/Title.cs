@@ -13,7 +13,8 @@ public class AnyKeyToSelectScene : MonoBehaviour
         if (Input.anyKeyDown)
         {
             hasLoaded = true; // ìÒèdì«Ç›çûÇ›ñhé~Ç≤ÇÌÇ∑
-            SceneManager.LoadScene("CharacterSelectScene");
+            //SceneManager.LoadScene("CharacterSelectScene");
+            FadeManager.Instance.LoadScene ("CharacterSelectScene", 2.0f);
         }
     }
 }

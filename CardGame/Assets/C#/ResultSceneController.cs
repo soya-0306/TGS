@@ -43,6 +43,7 @@ public class ResultSceneController : MonoBehaviour
 
     public void ReturnToTitle()
     {
-        SceneManager.LoadScene("TitleScene");
+        //SceneManager.LoadScene("TitleScene");
+        FadeManager.Instance.LoadScene("TitleScene", 2.0f);
     }
 }

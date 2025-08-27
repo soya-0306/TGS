@@ -10,6 +10,10 @@ public class AudioSceneController : MonoBehaviour
 
     void Start()
     {
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         audioSource = GetComponent<AudioSource>();
 
         if (isLoop)

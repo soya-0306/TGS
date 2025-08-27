@@ -53,7 +53,8 @@ public class DeckSelectUI : MonoBehaviour
             Debug.LogWarning("⚠️ buttonClickSoundが未設定です。SEなしでシーン遷移します。");
         }
 
-        SceneManager.LoadScene("BattleScene");
+        //SceneManager.LoadScene("BattleScene");
+        FadeManager.Instance.LoadScene("BattleScene", 2.0f);
     }
 
     public void OnClick()
