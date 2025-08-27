@@ -30,6 +30,12 @@ public class DirectionalCardSelector : MonoBehaviour
 
     public bool canSelect = true;  // ← 外部から切り替える用のフラグ
 
+    public BattleSEPlayer sePlayer;
+
+    private float inputCooldown = 0.2f;  // 秒単位、必要なら調整
+    private float inputTimerX = 0f;
+    private float inputTimerY = 0f;
+
     void Start()
     {
 
@@ -64,6 +70,12 @@ public class DirectionalCardSelector : MonoBehaviour
         right.cardUI?.SetCard(right.card);
 
         RefreshHand();
+
+        // ドローSEを再生
+        if (sePlayer != null)
+        {
+            sePlayer.PlayDrawSE();
+        }
     }
 
     public Deck CreateDeckFromDefinition(DeckDefinition def)
@@ -76,6 +88,10 @@ public class DirectionalCardSelector : MonoBehaviour
         if (!canSelect)
             return; // 選択できない状態なら何もしない
 
+        // クールタイム更新
+        inputTimerX -= Time.deltaTime;
+        inputTimerY -= Time.deltaTime;
+
         // プレイヤーごとの操作定義（Input Manager で設定する必要あり）
         if (playerId == 1)
         {
@@ -83,29 +99,37 @@ public class DirectionalCardSelector : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.S)) OnDownButtonPressed();
             if (Input.GetKeyDown(KeyCode.A)) OnLeftButtonPressed();
             if (Input.GetKeyDown(KeyCode.D)) OnRightButtonPressed();
-            
-            if (Input.GetAxis("P1_Y") > 0)
+
+            // スティック（アナログ）
+            float x = Input.GetAxis("P1_X");
+            float y = Input.GetAxis("P1_Y");
+
+            if (inputTimerY <= 0)
             {
-                //Debug.Log("OK");
-                OnUpButtonPressed();
+                if (y > 0.5f)
+                {
+                    TriggerInput("Up");
+                    inputTimerY = inputCooldown;
+                }
+                else if (y < -0.5f)
+                {
+                    TriggerInput("Down");
+                    inputTimerY = inputCooldown;
+                }
             }
 
-            if (Input.GetAxis("P1_Y") < 0)
+            if (inputTimerX <= 0)
             {
-                //Debug.Log("OK");
-                OnDownButtonPressed();
-            }
-
-            if (Input.GetAxis("P1_X") > 0)
-            {
-                //Debug.Log("OK");
-                OnRightButtonPressed();
-            }
-
-            if (Input.GetAxis("P1_X") < 0)
-            {
-                //Debug.Log("OK");
-                OnLeftButtonPressed();
+                if (x > 0.5f)
+                {
+                    TriggerInput("Right");
+                    inputTimerX = inputCooldown;
+                }
+                else if (x < -0.5f)
+                {
+                    TriggerInput("Left");
+                    inputTimerX = inputCooldown;
+                }
             }
         }
 
@@ -116,48 +140,80 @@ public class DirectionalCardSelector : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftArrow)) OnLeftButtonPressed();
             if (Input.GetKeyDown(KeyCode.RightArrow)) OnRightButtonPressed();
 
-            if (Input.GetAxis("P2_Y") > 0)
+            float x = Input.GetAxis("P2_X");
+            float y = Input.GetAxis("P2_Y");
+
+            if (inputTimerY <= 0)
             {
-                //Debug.Log("OK");
-                OnUpButtonPressed();
+                if (y > 0.5f)
+                {
+                    TriggerInput("Up");
+                    inputTimerY = inputCooldown;
+                }
+                else if (y < -0.5f)
+                {
+                    TriggerInput("Down");
+                    inputTimerY = inputCooldown;
+                }
             }
 
-            if (Input.GetAxis("P2_Y") < 0)
+            if (inputTimerX <= 0)
             {
-                //Debug.Log("OK");
-                OnDownButtonPressed();
-            }
-
-            if (Input.GetAxis("P2_X") > 0)
-            {
-                //Debug.Log("OK");
-                OnRightButtonPressed();
-            }
-
-            if (Input.GetAxis("P2_X") < 0)
-            {
-                //Debug.Log("OK");
-                OnLeftButtonPressed();
+                if (x > 0.5f)
+                {
+                    TriggerInput("Right");
+                    inputTimerX = inputCooldown;
+                }
+                else if (x < -0.5f)
+                {
+                    TriggerInput("Left");
+                    inputTimerX = inputCooldown;
+                }
             }
         }
     }
+
+    private void TriggerInput(string direction)
+    {
+        bool selected = false;
+
+        switch (direction)
+        {
+            case "Up":
+                selected = HandleInput(up.card, up.button);
+                break;
+            case "Down":
+                selected = HandleInput(down.card, down.button);
+                break;
+            case "Left":
+                selected = HandleInput(left.card, left.button);
+                break;
+            case "Right":
+                selected = HandleInput(right.card, right.button);
+                break;
+        }
+
+        if (selected)
+        {
+            sePlayer?.PlaySelectCardSE();  // 成功したときだけSE再生
+        }
+    }
+
 
     public void OnUpButtonPressed() => HandleInput(up.card, up.button);
     public void OnDownButtonPressed() => HandleInput(down.card, down.button);
     public void OnLeftButtonPressed() => HandleInput(left.card, left.button);
     public void OnRightButtonPressed() => HandleInput(right.card, right.button);
 
-    private void HandleInput(Card card, Button button)
+    private bool HandleInput(Card card, Button button)
     {
         if (selectedCards.Contains(card) || selectedCards.Count >= 4)
-            return;
+            return false; // もう選ばれてる or 枠がいっぱい → 失敗
 
         selectedCards.Add(card);
         button.interactable = false;
 
-        //selectedOrderUI?.AddCardToSlot(selectedCards.Count - 1, card);
         selectionCounterUI?.UpdateSelectionCount(selectedCards.Count);
-
         Debug.Log($"Player {playerId} selected card: {card.Name}");
 
         if (selectedCards.Count == 4)
@@ -165,6 +221,8 @@ public class DirectionalCardSelector : MonoBehaviour
             Debug.Log($"Player {playerId} selection complete.");
             OnSelectionComplete?.Invoke(playerId, selectedCards);
         }
+
+        return true; // 成功した
     }
 
     public void RefreshHand()
@@ -195,6 +253,12 @@ public class DirectionalCardSelector : MonoBehaviour
         right.cardUI?.SetCard(right.card);
 
         ResetSelector();
+
+        // リロールSEを再生
+        if (sePlayer != null)
+        {
+            sePlayer.PlayRerollSE();
+        }
     }
 
 

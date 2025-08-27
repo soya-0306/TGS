@@ -119,6 +119,8 @@ public class BattleManager : MonoBehaviour
     public AudioClip damageSound;  // 体力が減ったときの音（後からインスペクターでセット）
     private AudioSource audioSource;
 
+    public BattleSEPlayer sePlayer;
+
     void Start()
     {
         // 各プレイヤーにIDを割り当て
@@ -317,6 +319,7 @@ public class BattleManager : MonoBehaviour
             // 両者シールド → コンボキャンセルだけして判定スキップ
             if (c1.IsShield() && c2.IsShield())
             {
+                sePlayer.PlayTieOrShieldSE();
                 roundResult += " :Combo Cancel!";
                 p1History.Clear();
                 p2History.Clear();
@@ -335,10 +338,12 @@ public class BattleManager : MonoBehaviour
                 {
                     //roundResult += "P1 Shield - No damage";
                     yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
+                    sePlayer.PlayTieOrShieldSE();
                 }
                 else if (c2.IsShield())
                 {
                     yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
+                    sePlayer.PlayTieOrShieldSE();
                     //roundResult += "P2 Shield - No damage";
                 }
                 else if (c1.Beats(c2))
@@ -360,6 +365,8 @@ public class BattleManager : MonoBehaviour
                     // 勝者のアニメーションと敗者のリアクションを一括で再生
                     PlayBattleAnimations(player1Character, c1.Type, player2Character);
 
+                    sePlayer.PlayDamageSE();
+                    
                     // 音を鳴らす
                     if (damageSound != null)
                     {
@@ -390,6 +397,8 @@ public class BattleManager : MonoBehaviour
                     // 勝者のアニメーションと敗者のリアクションを一括で再生
                     PlayBattleAnimations(player2Character, c2.Type, player1Character);
 
+                    sePlayer.PlayDamageSE();
+
                     // 音を鳴らす
                     if (damageSound != null)
                     {
@@ -405,6 +414,7 @@ public class BattleManager : MonoBehaviour
                 {
                     roundResult += "Draw";
                     yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
+                    sePlayer.PlayTieOrShieldSE();
                 }
             }
 
@@ -838,6 +848,12 @@ public class BattleManager : MonoBehaviour
         }
         player1Selector.canSelect = false;
         player2Selector.canSelect = false;
+
+        //ラウンド開始SEを再生
+        if (sePlayer != null)
+        {
+            sePlayer.PlayRoundStartSE();
+        }
     }
 
     void EnterRerollSelectionPhase()

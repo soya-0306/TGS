@@ -25,8 +25,10 @@ public class SelectionCounterUI : MonoBehaviour
 
     private Vector3[] originalScales; // ← new: indicatorsの元のlocalScale
 
-    public AudioClip flipSound;
+    //public AudioClip flipSound;
     private AudioSource audioSource;
+
+    public BattleSEPlayer sePlayer;
 
     void Awake()
     {
@@ -146,6 +148,9 @@ public class SelectionCounterUI : MonoBehaviour
             .Join(cardBack.transform.DOScale(originalScale * 1.5f, 0.5f))
             .WaitForCompletion();
 
+        //カード移動SE再生（追加）
+        sePlayer.PlayMoveCardSE();
+
         // 回転（めくり演出）
         yield return cardBack.transform.DORotate(new Vector3(0, 90, 0), 0.25f).WaitForCompletion();
 
@@ -171,15 +176,8 @@ public class SelectionCounterUI : MonoBehaviour
 
         onComplete?.Invoke();
 
-        if (flipSound != null)
-        {
-            audioSource.PlayOneShot(flipSound);
-            Debug.Log("🔊 カードをめくる音を再生しました。");
-        }
-        else
-        {
-            Debug.Log("⚠️ flipSound が未設定のため、音は再生されませんでした。");
-        }
+        //カードをめくるSE再生（追加）
+        sePlayer.PlayRevealCardSE();
     }
 
     public IEnumerator ReturnRevealedCard(int index, Action onComplete = null)
@@ -196,6 +194,8 @@ public class SelectionCounterUI : MonoBehaviour
                 .Join(slot.transform.DOLocalMove(cardSlotsOriginalPositions[index], 0.5f).SetEase(Ease.OutQuad))
                 .Join(slot.transform.DOScale(cardSlotsOriginalScales[index], 0.5f).SetEase(Ease.OutQuad))
                 .WaitForCompletion();
+            //カード移動SE再生（追加）
+            sePlayer.PlayMoveCardSE();
         }
 
         onComplete?.Invoke();
