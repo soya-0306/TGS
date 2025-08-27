@@ -177,8 +177,8 @@ public class BattleManager : MonoBehaviour
     {
         if (currentRound > totalRounds)
         {
-            // XBOXコントローラーのAボタンは joystick button 0
-            if (Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.A))
+            // XBOXコントローラーのBボタンは joystick button 0
+            if (Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetKeyDown(KeyCode.B))
             {
                 ReturnToTitle();
             }
@@ -195,8 +195,11 @@ public class BattleManager : MonoBehaviour
                 selectionTimerText.text = $"リロール残り時間: {Mathf.CeilToInt(remaining)}秒";
             }
 
+            //リロールはXボタン joystick button 2
             if (Input.GetKeyDown(KeyCode.R)) p1WantsReroll = true;
+            if (Input.GetKeyDown(KeyCode.Joystick1Button2)) p1WantsReroll = true;
             if (Input.GetKeyDown(KeyCode.Return)) p2WantsReroll = true;
+            if (Input.GetKeyDown(KeyCode.Joystick2Button2)) p2WantsReroll = true;
 
             if (rerollTimer >= rerollTimeLimit)
             {
@@ -227,13 +230,13 @@ public class BattleManager : MonoBehaviour
         }
 
         // Qキーで1Pのコンボリスト表示切替
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button3))
         {
             ToggleComboListUI(1);
         }
 
         // Deleteキーで2Pのコンボリスト表示切替
-        if (Input.GetKeyDown(KeyCode.Delete))
+        if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Joystick2Button3))
         {
             ToggleComboListUI(2);
         }

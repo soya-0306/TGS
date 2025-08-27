@@ -49,6 +49,11 @@ public class TwoPlayerUISelector : MonoBehaviour
 
     private bool wasPlayer1OnTarget = false;
 
+    [Header("SEê›íË")]
+    public AudioClip moveSE;
+    public AudioClip selectSE;
+    public AudioSource audioSource; // ã§í Ç≈çƒê∂Ç∑ÇÈAudioSource
+
     void Start()
     {
         UpdateCursorPosition(0);
@@ -73,8 +78,8 @@ public class TwoPlayerUISelector : MonoBehaviour
 
     void Update()
     {
-        HandlePlayerInput(0, "Joystick1Horizontal", "Joystick1Vertical", KeyCode.Joystick1Button0);
-        HandlePlayerInput(1, "Joystick2Horizontal", "Joystick2Vertical", KeyCode.Joystick2Button0);
+        HandlePlayerInput(0, "Joystick1Horizontal", "Joystick1Vertical", KeyCode.Joystick1Button1);
+        HandlePlayerInput(1, "Joystick2Horizontal", "Joystick2Vertical", KeyCode.Joystick2Button1);
 
         HandleKeyboardInput(0, KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D, KeyCode.Return);
         HandleKeyboardInput(1, KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.KeypadEnter);
@@ -188,6 +193,8 @@ public class TwoPlayerUISelector : MonoBehaviour
         {
             currentIndices[playerIndex] = FindClosestInDirection(currentIndices[playerIndex], inputDir);
             lastInputTimes[playerIndex] = Time.time;
+
+            PlaySE(moveSE);
         }
 
         if (Input.GetKeyDown(submitKey))
@@ -201,6 +208,8 @@ public class TwoPlayerUISelector : MonoBehaviour
             }
 
             ShowMessageForSelectedIndex(playerIndex, currentIndices[playerIndex]);
+
+            PlaySE(selectSE);
         }
     }
 
@@ -239,6 +248,8 @@ public class TwoPlayerUISelector : MonoBehaviour
         {
             currentIndices[playerIndex] = FindClosestInDirection(currentIndices[playerIndex], inputDir);
             lastInputTimes[playerIndex] = Time.time;
+
+            PlaySE(moveSE);
         }
 
         if (Input.GetKeyDown(submitKey))
@@ -252,6 +263,8 @@ public class TwoPlayerUISelector : MonoBehaviour
             }
 
             ShowMessageForSelectedIndex(playerIndex, currentIndices[playerIndex]);
+
+            PlaySE(selectSE);
         }
     }
 
@@ -316,5 +329,13 @@ public class TwoPlayerUISelector : MonoBehaviour
         }
 
         return bestIndex;
+    }
+
+    void PlaySE(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
