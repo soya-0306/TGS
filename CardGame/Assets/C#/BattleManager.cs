@@ -242,6 +242,11 @@ public class BattleManager : MonoBehaviour
         {
             ToggleComboListUI(2);
         }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            FadeManager.Instance.LoadScene("ResultScene", 2.0f);
+        }
     }
 
     // プレイヤーがカード選択を終えた時に呼ばれる
