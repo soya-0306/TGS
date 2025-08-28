@@ -721,6 +721,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1388541986330998091, guid: 6e6d4112a1a746b4795e1f7a584e2f6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d370b73360a4735409ce8e28f085a59d, type: 2}
+    - target: {fileID: 1786383225242533877, guid: 6e6d4112a1a746b4795e1f7a584e2f6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b8a9e5cac65ac44aa4006bdc2b161e4, type: 2}
+    - target: {fileID: 4692828764726987342, guid: 6e6d4112a1a746b4795e1f7a584e2f6a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b8a9e5cac65ac44aa4006bdc2b161e4, type: 2}
     - target: {fileID: 5940200483759327656, guid: 6e6d4112a1a746b4795e1f7a584e2f6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -761,6 +773,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6284892144345248074, guid: 6e6d4112a1a746b4795e1f7a584e2f6a, type: 3}
+      propertyPath: IdleClip
+      value: 
+      objectReference: {fileID: 1827226128182048838, guid: 437433beb3b2a5a44bc8a2f11de63811, type: 3}
+    - target: {fileID: 6284892144345248074, guid: 6e6d4112a1a746b4795e1f7a584e2f6a, type: 3}
+      propertyPath: FightClip
+      value: 
+      objectReference: {fileID: 1827226128182048838, guid: f6c4b373ef0054d4ebcca1ede1781915, type: 3}
     - target: {fileID: 6423263858552754962, guid: 6e6d4112a1a746b4795e1f7a584e2f6a, type: 3}
       propertyPath: m_Name
       value: Millie

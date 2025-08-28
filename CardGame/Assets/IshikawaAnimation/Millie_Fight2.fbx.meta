@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 438f94ac06df330499eba95204ed3ee2
+guid: f6c4b373ef0054d4ebcca1ede1781915
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Re_Fight
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
-      lastFrame: 80
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
