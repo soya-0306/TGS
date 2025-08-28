@@ -14,6 +14,8 @@ public class PV : MonoBehaviour
 
     public Canvas canvas;       //Unity側でCanvasをアタッチ
 
+    public AudioSource audioSource; //タイトル画面のサウンド
+
 
     private void Start()
     {
@@ -65,9 +67,18 @@ public class PV : MonoBehaviour
     /// </summary>
     private void Play()
     {
+        
+        if (canvas != null)
+        {
+            canvas.GetComponent<Canvas>().enabled = false;  //動画再生時はUIを消す
+        }
+        if (audioSource != null)
+        {
+            audioSource.Stop(); //タイトル画面のサウンドを停止
+        }
         player.Play();
         isPlayeng = true;
-        canvas.GetComponent<Canvas>().enabled = false;  //動画再生時はUIを消す
+
     }
 
 
@@ -77,9 +88,19 @@ public class PV : MonoBehaviour
     /// <param name="vp">プレイヤー（メンバ変数にしてるからいらないんだけど、動画終了時勝手に呼ばれるようにするために必要</param>
     private void Stop(VideoPlayer vp)
     {
-        canvas.GetComponent<Canvas>().enabled = true;   //再生停止したらUIを復活
+        if (canvas != null)
+        {
+            canvas.GetComponent<Canvas>().enabled = true;   //再生停止したらUIを復活
+        }
+
+        if (audioSource != null)
+        {
+            audioSource.Play(); //BGM復活
+        }
+
         player.Stop();
         isPlayeng = false;
+
     }
 
 
