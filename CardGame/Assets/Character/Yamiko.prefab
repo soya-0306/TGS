@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2026306215190922034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7072706811689881421}
+  m_Layer: 0
+  m_Name: SpawnPoint_Yamiko(kari)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7072706811689881421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026306215190922034}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3418553319357240006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &133194054935246841
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1206874426333947015, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b2a80d603b048884d8764d7c26cde74f, type: 2}
+    - target: {fileID: 919132149155446097, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      propertyPath: m_Name
+      value: Yamiko
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8339664617137742044, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+    - {fileID: -169542840906018263, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -5861409178561632961, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7072706811689881421}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1961041582522850057}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7851901063871693585}
+  m_SourcePrefab: {fileID: 100100000, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+--- !u!1 &943603732671023784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+  m_PrefabInstance: {fileID: 133194054935246841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1961041582522850057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943603732671023784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228087e3576b8d94fb9b5dc6cce9caa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleClip: {fileID: 5598473573083599109, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+  FightClip: {fileID: 6228511215604996419, guid: ca8adadf092761b48acfd432bddc0a98, type: 3}
+  WeaponClip: {fileID: 2419618294518863923, guid: b6158f233c00a1e46b90ac24c561ad78, type: 3}
+  MagicClip: {fileID: 2419618294518863923, guid: b6158f233c00a1e46b90ac24c561ad78, type: 3}
+  DamageClip: {fileID: -731559901273844988, guid: 2246d60bbb9bb584eb1af5a1d9c4a3a7, type: 3}
+  ShieldClip: {fileID: 0}
+  FightSE: {fileID: 8300000, guid: a719d4858386bfa4abafd7ee497303d4, type: 3}
+  WaitFightSE: 0
+  WeaponSE: {fileID: 8300000, guid: a719d4858386bfa4abafd7ee497303d4, type: 3}
+  WaitWeaponSE: 0
+  MagicSE: {fileID: 8300000, guid: a719d4858386bfa4abafd7ee497303d4, type: 3}
+  WaitMagicSE: 0
+  DamageSE: {fileID: 8300000, guid: a719d4858386bfa4abafd7ee497303d4, type: 3}
+  WaitDamageSE: 0
+  ShieldSE: {fileID: 0}
+  WaitShieldSE: 0
+  FightEffect:
+    effectPrefab: {fileID: 7458564200767833722, guid: 14dfd592f3ca9a3408b3d35c004ea0ec, type: 3}
+    spawnPoint: {fileID: 7072706811689881421}
+    startTime: 0
+    endTime: 1
+  WeaponEffect:
+    effectPrefab: {fileID: 3093370748363751238, guid: 76cdbc7b4e493b540a4c8f4d598e0a5b, type: 3}
+    spawnPoint: {fileID: 7072706811689881421}
+    startTime: 0
+    endTime: 1
+  MagicEffect:
+    effectPrefab: {fileID: 7914662257891743077, guid: 3c0de2607c58f0d4ebfd659a38b10aa7, type: 3}
+    spawnPoint: {fileID: 7072706811689881421}
+    startTime: 0
+    endTime: 1
+  DamageEffect:
+    effectPrefab: {fileID: 5099431166652583641, guid: 8c51410e4f579f34f84ac8580fc8ece9, type: 3}
+    spawnPoint: {fileID: 7072706811689881421}
+    startTime: 0
+    endTime: 1
+  ShieldEffect:
+    effectPrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    startTime: 0
+    endTime: 1
+--- !u!114 &7851901063871693585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943603732671023784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2111de1a28c20345ab74a37da9a27c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &3418553319357240006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5861409178561632961, guid: 746f89ce3fc7ca149aef46b5138bba3d, type: 3}
+  m_PrefabInstance: {fileID: 133194054935246841}
+  m_PrefabAsset: {fileID: 0}

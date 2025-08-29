@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 371d8ad97e3c7e74fb36d3ffc2eb0f05
+guid: f6c4b373ef0054d4ebcca1ede1781915
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fight
+      name: Re.Fight
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
