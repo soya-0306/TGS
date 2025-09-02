@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\240681\\Unity\\CardGame\\CardGame\\",
+  "WorkspaceRootPath": "D:\\240259\\unity\\\u65B0\u3057\u3044\u30D5\u30A9\u30EB\u30C0\u30FC (3)\\CardGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240681\\unity\\cardgame\\cardgame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240259\\unity\\\u65B0\u3057\u3044\u30D5\u30A9\u30EB\u30C0\u30FC (3)\\cardgame\\assets\\pv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\pv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BattleManager.cs",
-              "DocumentMoniker": "D:\\240681\\Unity\\CardGame\\CardGame\\Assets\\C#\\BattleManager.cs",
-              "RelativeDocumentMoniker": "Assets\\C#\\BattleManager.cs",
-              "ToolTip": "D:\\240681\\Unity\\CardGame\\CardGame\\Assets\\C#\\BattleManager.cs",
-              "RelativeToolTip": "Assets\\C#\\BattleManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAAAAAAAAAAAA==",
+              "Title": "PV.cs",
+              "DocumentMoniker": "D:\\240259\\unity\\\u65B0\u3057\u3044\u30D5\u30A9\u30EB\u30C0\u30FC (3)\\CardGame\\Assets\\PV.cs",
+              "RelativeDocumentMoniker": "Assets\\PV.cs",
+              "ToolTip": "D:\\240259\\unity\\\u65B0\u3057\u3044\u30D5\u30A9\u30EB\u30C0\u30FC (3)\\CardGame\\Assets\\PV.cs",
+              "RelativeToolTip": "Assets\\PV.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-28T01:57:45.399Z",
+              "WhenOpened": "2025-08-28T06:02:53.699Z",
               "EditorCaption": ""
             }
           ]
