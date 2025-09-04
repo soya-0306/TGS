@@ -7,6 +7,9 @@ public class EffectTiming
     public Transform spawnPoint;
     public float startTime = 0f; // エフェクト開始までの遅延(秒)
     public float endTime = 1f;   // 開始から何秒後に消すか
+
+    [Header("回転設定")]
+    public Vector3 rotationOffset; // Unity側で自由に指定する角度
 }
 
 public class KeyAnimationController : MonoBehaviour
@@ -64,34 +67,30 @@ public class KeyAnimationController : MonoBehaviour
         AddClipIfNeeded(WeaponClip, WrapMode.Once);
         AddClipIfNeeded(MagicClip, WrapMode.Once);
         AddClipIfNeeded(DamageClip, WrapMode.Once);
-        AddClipIfNeeded (ShieldClip, WrapMode.Once);
+        AddClipIfNeeded(ShieldClip, WrapMode.Once);
 
         if (IdleClip != null) anim.Play(IdleClip.name);
     }
 
     void Update()
     {
-        // アニメーション終了後にIdleに戻す
         if (Time.time > currentAnimEndTime && !anim.IsPlaying(IdleClip.name))
         {
             anim.Play(IdleClip.name);
             StopCurrentEffect();
         }
 
-        // SE再生タイミング
         if (pendingSE != null && Time.time >= sePlayTime)
         {
             PlaySE(pendingSE);
             pendingSE = null;
         }
 
-        // エフェクト開始
         if (pendingEffect != null && Time.time >= effectStartTime && currentEffectInstance == null)
         {
             PlayEffect(pendingEffect);
         }
 
-        // エフェクト終了
         if (currentEffectInstance != null && Time.time >= effectEndTime)
         {
             StopCurrentEffect();
@@ -103,7 +102,6 @@ public class KeyAnimationController : MonoBehaviour
         anim.Play(clip.name);
         currentAnimEndTime = Time.time + clip.length;
 
-        // エフェクトのスケジュール
         if (effectTiming != null && effectTiming.effectPrefab != null)
         {
             pendingEffect = effectTiming;
@@ -111,7 +109,6 @@ public class KeyAnimationController : MonoBehaviour
             effectEndTime = Time.time + effectTiming.endTime;
         }
 
-        // SEスケジュール
         if (seClip != null)
         {
             sePlayTime = Time.time + seDelay;
@@ -125,7 +122,9 @@ public class KeyAnimationController : MonoBehaviour
 
         if (effectTiming.effectPrefab != null && effectTiming.spawnPoint != null)
         {
-            currentEffectInstance = Instantiate(effectTiming.effectPrefab, effectTiming.spawnPoint.position, Quaternion.identity);
+            // 回転を適用して生成
+            Quaternion rotation = effectTiming.spawnPoint.rotation * Quaternion.Euler(effectTiming.rotationOffset);
+            currentEffectInstance = Instantiate(effectTiming.effectPrefab, effectTiming.spawnPoint.position, rotation);
             currentEffectInstance.transform.SetParent(effectTiming.spawnPoint);
             currentEffectInstance.transform.localPosition = Vector3.zero;
             currentEffectInstance.transform.localScale = Vector3.one;
@@ -161,7 +160,6 @@ public class KeyAnimationController : MonoBehaviour
         }
     }
 
-    // 呼び出し例
     public void PlayCardAnimation(CardType type)
     {
         switch (type)

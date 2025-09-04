@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 48
+  controlID: 59
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 49
+  controlID: 60
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 50
+  controlID: 61
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -217,8 +217,8 @@ MonoBehaviour:
     y: 0
     width: 325
     height: 636
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -300,8 +300,8 @@ MonoBehaviour:
     y: 0
     width: 443
     height: 933
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -388,18 +388,18 @@ MonoBehaviour:
       y: 21
       width: 1150
       height: 589
-    m_Scale: {x: 0.5453704, y: 0.5453704}
-    m_Translation: {x: 575, y: 294.50003}
+    m_Scale: {x: 0.55971193, y: 0.55971193}
+    m_Translation: {x: 575, y: 286.75555}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1054.3293
-      y: -540
-      width: 2108.6587
-      height: 1080
+      x: -1027.3142
+      y: -512.327
+      width: 2054.6284
+      height: 1052.327
     m_MinimalGUI: 1
   m_defaultScale: 0.5453704
   m_LastWindowPixelSize: {x: 1150, y: 610}
@@ -448,23 +448,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9ef5ffff
-      m_LastClickedID: -2658
-      m_ExpandedIDs: 94f5ffff9ef5ffff9ef9ffffa2f9ffffa6f9ffffaaf9fffffef9ffff02faffff06faffff0afaffff0efaffff12faffff16faffff3afaffff3efaffffacfaffff
+      m_SelectedIDs: 808a5cff
+      m_LastClickedID: -10712448
+      m_ExpandedIDs: ce835cffe0845cffea845cff74855cff78855cff7c855cff80855cffdc855cffe0855cffe4855cffe8855cffec855cfff0855cfff4855cff18865cff1c865cff4e8a5cff768a5cff828a5cffb2966bffa2b972ffb4d483ff5e5addff625addff665addff6a5addffc65addffca5addffce5addffd25addffd65addffda5addffde5addff025bddff065bddffe65eddff981ef4ff7620f4ffe2f6ffffd8faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Fire Effects Green
+        m_OriginalName: Fire Effects Green
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -10714162
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 9}
@@ -970,9 +970,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -0.6362821, y: 0.76502836, z: -0.72714007}
+    m_Target: {x: -3.9681625, y: -2.5267336, z: -6.9497333}
     speed: 2
-    m_Value: {x: -0.6362821, y: 0.76502836, z: -0.72714007}
+    m_Value: {x: -3.9681625, y: -2.5267336, z: -6.9497333}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1018,13 +1018,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.090287134, y: -0.73097074, z: 0.098195404, w: -0.6690742}
+    m_Target: {x: 0.03969825, y: -0.9578598, z: 0.16728567, w: 0.22965254}
     speed: 2
-    m_Value: {x: -0.0902974, y: -0.7310539, z: 0.09820657, w: -0.6691503}
+    m_Value: {x: 0.039702296, y: -0.95795745, z: 0.16730271, w: 0.22967595}
   m_Size:
-    m_Target: 1.9613552
+    m_Target: 5.562869
     speed: 2
-    m_Value: 1.9613552
+    m_Value: 5.562869
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1042,7 +1042,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.00025967936, y: -0.90151095, z: 0.4324911, w: 0.0012534456}
+  m_LastSceneViewRotation: {x: 0.07340475, y: -0.8134047, z: 0.10599965, w: 0.5670494}
   m_LastSceneViewOrtho: 0
   m_Viewpoint:
     m_SceneView: {fileID: 15}
@@ -1277,7 +1277,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Matthew Guz/Slash Effects FREE/Prefab
+    - Assets/PolyOne/Fire Effects/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1287,17 +1287,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Matthew Guz/Slash Effects FREE/Prefab
+  - Assets/PolyOne/Fire Effects/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "D:\\240259\\unity\\\u65B0\u3057\u3044\u30D5\u30A9\u30EB\u30C0\u30FC
     (3)\\CardGame"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 240}
-    m_SelectedIDs: 76c00000
-    m_LastClickedID: 49270
-    m_ExpandedIDs: 00000000fcbc0000febc0000babf0000c0bf00006ec000007cc1000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 335}
+    m_SelectedIDs: 92120100
+    m_LastClickedID: 70290
+    m_ExpandedIDs: 0000000030bd000032bd0000febf000004c0000008c0000060c000009412010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1326,7 +1326,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fcbc0000febc0000
+    m_ExpandedIDs: 0000000030bd000032bd0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1463,7 +1463,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 486
+  m_LastVerticalScrollValue: 216
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
