@@ -118,7 +118,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.6
+      scalar: 1
       minScalar: 0.8
       maxCurve:
         serializedVersion: 2
@@ -1320,8 +1320,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.7882353, g: 1, b: 0.79973644, a: 0}
-        key1: {r: 0.2291614, g: 1, b: 0.039215684, a: 1}
-        key2: {r: 0.72634864, g: 1, b: 0, a: 1}
+        key1: {r: 1, g: 0.039215684, b: 0.121007, a: 1}
+        key2: {r: 0.8773585, g: 0.36197662, b: 0.29383236, a: 1}
         key3: {r: 0.72634864, g: 1, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1329,7 +1329,7 @@ ParticleSystem:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 18311
         ctime1: 33346
-        ctime2: 48573
+        ctime2: 48380
         ctime3: 48573
         ctime4: 0
         ctime5: 0
@@ -6192,8 +6192,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.49411762, g: 1, b: 0.53748465, a: 0}
-        key1: {r: 0.5262275, g: 1, b: 0, a: 0.9490196}
+        key0: {r: 1, g: 0.3401869, b: 0.18396229, a: 0}
+        key1: {r: 1, g: 0, b: 0.5700908, a: 0.9490196}
         key2: {r: 0.46988776, g: 0, b: 0.6226415, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9746,7 +9746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &704514300433622524
 Transform:
   m_ObjectHideFlags: 0

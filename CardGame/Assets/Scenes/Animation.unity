@@ -670,6 +670,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
+      propertyPath: MagicEffect.endTime
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
+      propertyPath: WeaponEffect.endTime
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
+      propertyPath: FightEffect.effectPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
       propertyPath: WeaponEffect.effectPrefab
       value: 
       objectReference: {fileID: 138826198}
@@ -778,10 +790,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99871933
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000024408521
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.050595347
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.00000008848827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544106302993424947, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
       propertyPath: FightEffect.effectPrefab
       value: 
-      objectReference: {fileID: 5099431166652583641, guid: 8c51410e4f579f34f84ac8580fc8ece9, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -838,6 +890,10 @@ PrefabInstance:
     - target: {fileID: 943603732671023784, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
       propertyPath: m_Name
       value: Yamiko
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961041582522850057, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+      propertyPath: FightEffect.effectPrefab
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7072706811689881421, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
       propertyPath: m_LocalPosition.z
