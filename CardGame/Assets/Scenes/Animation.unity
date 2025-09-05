@@ -541,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: 5}
+  m_LocalPosition: {x: 0, y: 1, z: 6.823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -604,6 +604,69 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3ae2779724c97f468ae34dd3c28a524, type: 3}
+--- !u!1 &1819650911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+  m_PrefabInstance: {fileID: 2087587200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1819650912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819650911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228087e3576b8d94fb9b5dc6cce9caa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleClip: {fileID: 0}
+  FightClip: {fileID: 0}
+  WeaponClip: {fileID: 8098155298850189532, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+  MagicClip: {fileID: 0}
+  DamageClip: {fileID: 0}
+  ShieldClip: {fileID: 0}
+  FightSE: {fileID: 0}
+  WaitFightSE: 0
+  WeaponSE: {fileID: 0}
+  WaitWeaponSE: 0
+  MagicSE: {fileID: 0}
+  WaitMagicSE: 0
+  DamageSE: {fileID: 0}
+  WaitDamageSE: 0
+  ShieldSE: {fileID: 0}
+  WaitShieldSE: 0
+  FightEffect:
+    effectPrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    startTime: 0
+    endTime: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+  WeaponEffect:
+    effectPrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    startTime: 0
+    endTime: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+  MagicEffect:
+    effectPrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    startTime: 0
+    endTime: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+  DamageEffect:
+    effectPrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    startTime: 0
+    endTime: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
+  ShieldEffect:
+    effectPrefab: {fileID: 0}
+    spawnPoint: {fileID: 0}
+    startTime: 0
+    endTime: 1
+    rotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &2031606490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -661,6 +724,69 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76cdbc7b4e493b540a4c8f4d598e0a5b, type: 3}
+--- !u!1001 &2087587200
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0056524277
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.9518108
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      propertyPath: m_Name
+      value: group3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -169542840906018263, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+    - {fileID: -8339664617137742044, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+    - {fileID: -5525380005753893801, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1819650912}
+  m_SourcePrefab: {fileID: 100100000, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
 --- !u!1001 &682365836209853929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -670,8 +796,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
+      propertyPath: DamageSE
+      value: 
+      objectReference: {fileID: 8300000, guid: f2b0ddf7641d19443a3248b7f7549937, type: 3}
+    - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
       propertyPath: MagicEffect.endTime
       value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
+      propertyPath: DamageEffect.endTime
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
       propertyPath: WeaponEffect.endTime
@@ -681,6 +815,10 @@ PrefabInstance:
       propertyPath: FightEffect.effectPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
+      propertyPath: DamageEffect.effectPrefab
+      value: 
+      objectReference: {fileID: 1758473627833946668, guid: 9b21333b068a5084ba09535839bee3c8, type: 3}
     - target: {fileID: 1886947978300247813, guid: 925443355295ece489e8d39ae065901f, type: 3}
       propertyPath: WeaponEffect.effectPrefab
       value: 
@@ -831,9 +969,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: FightSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 2505ef0f8f43ee54ab948d5f4700aa58, type: 3}
+    - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: MagicSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fe3e35237f50b747a951a19b253c73b, type: 3}
+    - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: DamageSE
+      value: 
+      objectReference: {fileID: 8300000, guid: f2b0ddf7641d19443a3248b7f7549937, type: 3}
+    - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: DamageEffect.endTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: ShieldEffect.endTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
       propertyPath: FightEffect.effectPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8210231756992865941, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: DamageEffect.effectPrefab
+      value: 
+      objectReference: {fileID: 1758473627833946668, guid: 9b21333b068a5084ba09535839bee3c8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -891,6 +1053,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yamiko
       objectReference: {fileID: 0}
+    - target: {fileID: 1961041582522850057, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+      propertyPath: DamageSE
+      value: 
+      objectReference: {fileID: 8300000, guid: f2b0ddf7641d19443a3248b7f7549937, type: 3}
+    - target: {fileID: 1961041582522850057, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+      propertyPath: WeaponSE
+      value: 
+      objectReference: {fileID: 8300000, guid: 1003399d94847ca43b9a39916d034931, type: 3}
+    - target: {fileID: 1961041582522850057, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+      propertyPath: WeaponClip
+      value: 
+      objectReference: {fileID: 8098155298850189532, guid: b3d14cf55369fb443b5acd31da76a2f4, type: 3}
+    - target: {fileID: 1961041582522850057, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+      propertyPath: DamageEffect.endTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961041582522850057, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+      propertyPath: DamageEffect.effectPrefab
+      value: 
+      objectReference: {fileID: 1758473627833946668, guid: 9b21333b068a5084ba09535839bee3c8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -909,3 +1091,4 @@ SceneRoots:
   - {fileID: 4941519234951574182}
   - {fileID: 682365836209853929}
   - {fileID: 2031606490}
+  - {fileID: 2087587200}
