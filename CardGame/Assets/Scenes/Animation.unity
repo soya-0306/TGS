@@ -891,14 +891,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yamiko
       objectReference: {fileID: 0}
-    - target: {fileID: 1961041582522850057, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
-      propertyPath: FightEffect.effectPrefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7072706811689881421, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
