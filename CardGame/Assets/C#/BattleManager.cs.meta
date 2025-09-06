@@ -1,2 +1,47 @@
 fileFormatVersion: 2
 guid: 004ab1296ac52e346b5a23cf1261b32d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player1Selector: {instanceID: 0}
+  - player2Selector: {instanceID: 0}
+  - player1CardDisplay: {instanceID: 0}
+  - player2CardDisplay: {instanceID: 0}
+  - player1CardShowPanel: {instanceID: 0}
+  - player2CardShowPanel: {instanceID: 0}
+  - roundResultText: {instanceID: 0}
+  - finalResultText: {instanceID: 0}
+  - resultTextUIObject: {instanceID: 0}
+  - resultText: {instanceID: 0}
+  - roundResultTextUIObject: {instanceID: 0}
+  - player1HP: {instanceID: 0}
+  - player2HP: {instanceID: 0}
+  - player1Deck: {instanceID: 0}
+  - player2Deck: {instanceID: 0}
+  - player1DamageColorPanelCanvasGroup: {instanceID: 0}
+  - player2DamageColorPanelCanvasGroup: {instanceID: 0}
+  - player1RevealUI: {instanceID: 0}
+  - player2RevealUI: {instanceID: 0}
+  - drawEffectPrefab: {instanceID: 0}
+  - fireEffectPrefab: {instanceID: 0}
+  - drawEffectCenterPoint: {instanceID: 0}
+  - player1SpawnPoint: {instanceID: 0}
+  - player2SpawnPoint: {instanceID: 0}
+  - selectionTimerText: {instanceID: 0}
+  - damagePopupPrefab: {instanceID: 0}
+  - player1ComboListParent: {instanceID: 0}
+  - player2ComboListParent: {instanceID: 0}
+  - comboListUIPrefab: {instanceID: 0}
+  - BattleStart: {instanceID: 0}
+  - Round1Start: {instanceID: 0}
+  - Round2Start: {instanceID: 0}
+  - Round3Start: {instanceID: 0}
+  - bandTransform: {instanceID: 0}
+  - damageSound: {instanceID: 0}
+  - sePlayer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

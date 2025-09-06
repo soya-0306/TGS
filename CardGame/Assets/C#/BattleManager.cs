@@ -116,6 +116,20 @@ public class BattleManager : MonoBehaviour
     private GameObject player1ComboListUIInstance;
     private GameObject player2ComboListUIInstance;
 
+    [Header("帯")]
+    [SerializeField] private GameObject bannerObject; // 帯本体のオブジェクト（Image付き）
+    [SerializeField] private RectTransform bannerRectTransform; // アニメ用RectTransform
+    [SerializeField] private Image bannerImage; // 表示する画像を差し替える
+
+    [SerializeField] private Sprite battleStartSprite;
+    [SerializeField] private Sprite round1Sprite;
+    [SerializeField] private Sprite round2Sprite;
+    [SerializeField] private Sprite round3Sprite;
+
+    [SerializeField] private float bannerSlideDuration = 0.5f;
+    [SerializeField] private float bannerWaitTime = 1.2f;
+
+
     public AudioClip damageSound;  // 体力が減ったときの音（後からインスペクターでセット）
     private AudioSource audioSource;
 
@@ -172,7 +186,9 @@ public class BattleManager : MonoBehaviour
             player2Character.transform.localScale = Vector3.one;
         }
 
-        StartRerollPhase();
+        StartCoroutine(StartBattleSequence());
+
+        //StartRerollPhase();
     }
 
     void Update()
@@ -449,41 +465,37 @@ public class BattleManager : MonoBehaviour
             if (player1HP.currentHP <= 0 || player2HP.currentHP <= 0)
             {
                 Debug.Log("Player HP reached 0. Ending round immediately.");
-                yield return EndOfRound();  // リザルト処理に進む
+                yield return EndOfRound(totalRounds);  // リザルト処理に進む
                 yield break;                // これ以上処理をしない（BattlePhase即終了）
             }
         }
 
-        yield return EndOfRound();
+        yield return EndOfRound(totalRounds);
     }
 
-    IEnumerator EndOfRound()
+    IEnumerator EndOfRound(int roundNumber)
     {
         Debug.Log("Battle Finished!");
 
         if (resultTextUIObject != null) resultTextUIObject.SetActive(true);
 
-        //if (resultText != null)
-        //{
-        //    // HPで判定
-        //    if (player1HP.currentHP > player2HP.currentHP)
-        //    {
-        //        resultText.text = "Player1 WIN !!";
-        //    }
-        //    else if (player2HP.currentHP > player1HP.currentHP)
-        //    {
-        //        resultText.text = "Player2 WIN !!";
-        //    }
-        //    else
-        //    {
-        //        resultText.text = "DRAW !!";
-        //    }
-        //}
+        Sprite roundSprite = null;
+        switch (roundNumber)
+        {
+            case 2:
+                roundSprite = round2Sprite;
+                break;
+            case 3:
+                roundSprite = round3Sprite;
+                break;
+        }
 
-        if (finalResultText != null)
-            finalResultText.text = $"HP: {player1HP.currentHP} - {player2HP.currentHP}";
+        if (roundSprite != null)
+        {
+            yield return PlayBannerAnimation(roundSprite);
+        }
 
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
 
         currentRound++;
 
@@ -557,7 +569,6 @@ public class BattleManager : MonoBehaviour
         }
         StartRerollPhase();
     }
-
 
     //ダメージを受けた側が一瞬だけ赤いパネルが出てくる
     private void ShowDamagePanel(int playerId)
@@ -689,7 +700,7 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator RevealCardsThenStartBattle()
     {
-        // ▼ ここでタイマーを消す
+         // ▼ ここでタイマーを消す
         if (selectionTimerText != null)
         {
             selectionTimerText.gameObject.SetActive(false);
@@ -853,12 +864,6 @@ public class BattleManager : MonoBehaviour
         }
         player1Selector.canSelect = false;
         player2Selector.canSelect = false;
-
-        //ラウンド開始SEを再生
-        if (sePlayer != null)
-        {
-            sePlayer.PlayRoundStartSE();
-        }
     }
 
     void EnterRerollSelectionPhase()
@@ -974,4 +979,74 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator PlayBannerAnimation(Sprite bannerSprite)
+    {
+        // nullチェックと初期化
+        if (bannerImage == null || bannerRectTransform == null)
+            yield break;
+
+        bannerImage.sprite = bannerSprite;
+        bannerImage.SetNativeSize();
+        bannerRectTransform.gameObject.SetActive(true);
+
+        //ラウンド開始SEを再生
+        if (sePlayer != null)
+        {
+            sePlayer.PlayRoundStartSE();
+        }
+
+        // 画面外（左）に配置
+        RectTransform bannerRect = bannerRectTransform.GetComponent<RectTransform>();
+        bannerRect.anchoredPosition = new Vector2(-Screen.width, 0);
+
+        // 左から中央にスライドイン（0.5秒）
+        yield return bannerRect.DOAnchorPos(Vector2.zero, 0.5f)
+            .SetEase(Ease.OutCubic)
+            .WaitForCompletion();
+
+        // 少し表示（1秒くらい）
+        yield return new WaitForSeconds(1.0f);
+
+        // 右にスライドアウト（0.5秒）
+        yield return bannerRect.DOAnchorPos(new Vector2(Screen.width, 0), 0.5f)
+            .SetEase(Ease.InCubic)
+            .WaitForCompletion();
+
+        bannerRectTransform.gameObject.SetActive(false);
+    }
+
+    IEnumerator StartBattleSequence()
+    {
+        yield return new WaitForSeconds(1f); // シーン入り後の余白
+
+        // バトル開始帯
+        yield return ShowBanner(battleStartSprite);
+
+        // ラウンド1開始帯
+        yield return ShowBanner(round1Sprite);
+
+        // 通常処理開始（選択フェーズ開始）
+        StartRerollPhase();
+    }
+
+    private IEnumerator ShowBanner(Sprite bannerSprite)
+    {
+        bannerImage.sprite = bannerSprite;
+        bannerImage.SetNativeSize(); // 画像に応じてサイズを合わせたい場合
+
+        bannerRectTransform.anchoredPosition = new Vector2(-Screen.width, 0);
+        bannerRectTransform.gameObject.SetActive(true);
+
+        // スライドイン
+        yield return bannerRectTransform.DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutCubic).WaitForCompletion();
+
+        yield return new WaitForSeconds(1f); // 表示時間
+
+        // スライドアウト
+        yield return bannerRectTransform.DOAnchorPos(new Vector2(Screen.width, 0), 0.5f).SetEase(Ease.InCubic).WaitForCompletion();
+
+        bannerRectTransform.gameObject.SetActive(false);
+    }
+
 }
