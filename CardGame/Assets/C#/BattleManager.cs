@@ -897,15 +897,15 @@ public class BattleManager : MonoBehaviour
                 player1ComboListUIInstance = Instantiate(comboListUIPrefab, player1ComboListParent, false);
                 player1ComboListUIInstance.transform.localPosition = new Vector3(-Screen.width, 0, -10f);
 
-                RectTransform rt = player1ComboListUIInstance.GetComponent<RectTransform>();
-                if (rt != null)
-                {
-                    rt.anchorMin = Vector2.zero;
-                    rt.anchorMax = Vector2.one;
-                    rt.sizeDelta = Vector2.zero;
-                    rt.anchoredPosition = Vector2.zero;
-                    rt.localScale = Vector3.one;
-                }
+                //RectTransform rt = player1ComboListUIInstance.GetComponent<RectTransform>();
+                //if (rt != null)
+                //{
+                //    rt.anchorMin = Vector2.zero;
+                //    rt.anchorMax = Vector2.one;
+                //    rt.sizeDelta = Vector2.zero;
+                //    rt.anchoredPosition = Vector2.zero;
+                //    rt.localScale = Vector3.one;
+                //}
 
                 var image = player1ComboListUIInstance.GetComponent<Image>();
                 if (image != null && player1Deck != null)
@@ -941,15 +941,15 @@ public class BattleManager : MonoBehaviour
                 player2ComboListUIInstance = Instantiate(comboListUIPrefab, player2ComboListParent, false);
                 player2ComboListUIInstance.transform.localPosition = new Vector3(-Screen.width, 0, -10f);
 
-                RectTransform rt = player2ComboListUIInstance.GetComponent<RectTransform>();
-                if (rt != null)
-                {
-                    rt.anchorMin = Vector2.zero;
-                    rt.anchorMax = Vector2.one;
-                    rt.sizeDelta = Vector2.zero;
-                    rt.anchoredPosition = Vector2.zero;
-                    rt.localScale = Vector3.one;
-                }
+                //RectTransform rt = player2ComboListUIInstance.GetComponent<RectTransform>();
+                //if (rt != null)
+                //{
+                //    rt.anchorMin = Vector2.zero;
+                //    rt.anchorMax = Vector2.one;
+                //    rt.sizeDelta = Vector2.zero;
+                //    rt.anchoredPosition = Vector2.zero;
+                //    rt.localScale = Vector3.one;
+                //}
 
                 var image = player2ComboListUIInstance.GetComponent<Image>();
                 if (image != null && player2Deck != null)

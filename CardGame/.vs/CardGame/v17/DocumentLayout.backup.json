@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\TGS\\CardGame\\",
+  "WorkspaceRootPath": "D:\\240281\\sin_TGS\\CardGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\tgs\\cardgame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\sin_tgs\\cardgame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\TGS\\CardGame\\assets\\c#\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\sin_TGS\\CardGame\\assets\\c#\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\keyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\TGS\\CardGame\\Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\240281\\sin_TGS\\CardGame\\Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "BattleManager.cs",
-              "DocumentMoniker": "D:\\TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
+              "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\BattleManager.cs",
-              "ToolTip": "D:\\TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
+              "ToolTip": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
               "RelativeToolTip": "Assets\\C#\\BattleManager.cs",
-              "ViewState": "AgIAANMBAAAAAAAAAAAAwPEBAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAiwPwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-05T12:33:15.328Z",
               "EditorCaption": ""
@@ -41,9 +41,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "KeyAnimationController.cs",
-              "DocumentMoniker": "D:\\TGS\\CardGame\\Assets\\C#\\KeyAnimationController.cs",
+              "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\KeyAnimationController.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\KeyAnimationController.cs",
-              "ToolTip": "D:\\TGS\\CardGame\\Assets\\C#\\KeyAnimationController.cs",
+              "ToolTip": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\KeyAnimationController.cs",
               "RelativeToolTip": "Assets\\C#\\KeyAnimationController.cs",
               "ViewState": "AgIAAJUAAAAAAAAAAABFwLcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -53,9 +53,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ValidationSuiteExtensionUI.cs",
-              "DocumentMoniker": "D:\\TGS\\CardGame\\Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs",
+              "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs",
-              "ToolTip": "D:\\TGS\\CardGame\\Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs",
+              "ToolTip": "D:\\240281\\sin_TGS\\CardGame\\Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs",
               "RelativeToolTip": "Library\\PackageCache\\com.unity.package-validation-suite@536239bd7458\\Editor\\Extension\\UI\\ValidationSuiteExtensionUI.cs",
               "ViewState": "AgIAAG8AAAAAAAAAAAAewIcAAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
