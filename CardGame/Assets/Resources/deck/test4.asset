@@ -54,4 +54,4 @@ MonoBehaviour:
     effectID: 0
     isOrderless: 0
   deckCharacterPrefab: {fileID: 943603732671023784, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
-  comboListImage: {fileID: 21300000, guid: 9beef6626e808f04aae99a4bac534a80, type: 3}
+  comboListImage: {fileID: 21300000, guid: 59f51550c7335404c9e064729be3040b, type: 3}
