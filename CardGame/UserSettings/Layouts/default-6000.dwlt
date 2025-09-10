@@ -170,7 +170,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
+<<<<<<< HEAD
   controlID: 45
+=======
+  controlID: 56
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -448,9 +452,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 4ecbc9ff
       m_LastClickedID: -3552434
       m_ExpandedIDs: 6ac8c9ff6ec8c9ff72c8c9ff76c8c9ff7ac8c9ffd6c8c9ffdac8c9ffdec8c9ffe2c8c9ffe6c8c9ffeac8c9ffeec8c9ff12c9c9ff16c9c9ff6ecbc9ff22cdc9ff26cdc9ff2acdc9ff2ecdc9ff82cdc9ff86cdc9ff8acdc9ff8ecdc9ff92cdc9ff96cdc9ff9acdc9ffbecdc9ffc2cdc9ff46cec9ffa4d7c9ff2a17ceff00a4ffff04a4ffff08a4ffff0ca4ffff10a4ffff6ca4ffff70a4ffff74a4ffff78a4ffff7ca4ffff80a4ffff84a4ffffa8a4ffffaca4ffff6ca6ffff72a6ffffe4a6ffff7aa7ffff7ea7ffff82a7ffff86a7ffffdaa7ffffdea7ffffe2a7ffffe6a7ffffeaa7ffffeea7fffff2a7ffff16a8ffff1aa8ffff9aa9ffff50aaffff6cafffff
+=======
+      m_SelectedIDs: c2af0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 06f6ffffd8faffff06b5000044b50000
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -970,9 +980,15 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 0.6306868, y: -0.9809299, z: -3.3890464}
     speed: 2
     m_Value: {x: 0.6306868, y: -0.9809299, z: -3.3890464}
+=======
+    m_Target: {x: -24.030867, y: 141.64554, z: -79.90501}
+    speed: 2
+    m_Value: {x: -24.030867, y: 141.64554, z: -79.90501}
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1018,6 +1034,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.004753779, y: -0.99357367, z: 0.10351519, w: -0.04563021}
     speed: 2
     m_Value: {x: -0.0047537587, y: -0.9935694, z: 0.103514746, w: -0.04563001}
@@ -1025,6 +1042,15 @@ MonoBehaviour:
     m_Target: 2.9391117
     speed: 2
     m_Value: 2.9391117
+=======
+    m_Target: {x: -0.07865401, y: 0.16284193, z: -0.0130239185, w: -0.9834255}
+    speed: 2
+    m_Value: {x: -0.08010909, y: 0.16429704, z: -0.013388349, w: -0.98306143}
+  m_Size:
+    m_Target: 46.203396
+    speed: 2
+    m_Value: 46.203392
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1277,7 +1303,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Hovl Studio/Magic effects pack/Prefabs/Magic circles
+=======
+    - "Assets/UI\u30FBMaterial/\u76F8\u6027\u8868"
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1287,17 +1317,27 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Hovl Studio/Magic effects pack/Prefabs/Magic circles
+=======
+  - "Assets/UI\u30FBMaterial/\u76F8\u6027\u8868"
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "D:\\240259\\unity\\\u65B0\u3057\u3044\u30D5\u30A9\u30EB\u30C0\u30FC
-    (3)\\CardGame"
+  m_LastProjectPath: D:\240681\Unity\CardGame\CardGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 149}
     m_SelectedIDs: a6430100
     m_LastClickedID: 82854
     m_ExpandedIDs: 00000000fcd700003cda000042da000048da0000c4e90000fce90000904301009843010000ca9a3bffffff7f
+=======
+    scrollPos: {x: 0, y: 341}
+    m_SelectedIDs: 52b90000
+    m_LastClickedID: 47442
+    m_ExpandedIDs: 0000000038b10000a0b3000052b9000000ca9a3bffffff7f
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1326,7 +1366,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000fcd70000
+=======
+    m_ExpandedIDs: 0000000038b10000
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1463,7 +1507,11 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
+<<<<<<< HEAD
   m_LastVerticalScrollValue: 648
+=======
+  m_LastVerticalScrollValue: 0
+>>>>>>> 6d1018154f6461877bf62fe1a757476131c1985b
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

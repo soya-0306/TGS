@@ -1089,7 +1089,7 @@ PrefabInstance:
     - target: {fileID: 337865403427878233, guid: 8d27dfed997d5194b9d32df6517eb90b, type: 3}
       propertyPath: clip
       value: 
-      objectReference: {fileID: 8300000, guid: 2f8f577405b7fbc4697442a4812081a7, type: 3}
+      objectReference: {fileID: 8300000, guid: dc9042956e5a59a40b4f2402270b270f, type: 3}
     - target: {fileID: 1773705786990331742, guid: 8d27dfed997d5194b9d32df6517eb90b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1132,7 +1132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069338537579921113, guid: 8d27dfed997d5194b9d32df6517eb90b, type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4262306125881022716, guid: 8d27dfed997d5194b9d32df6517eb90b, type: 3}
       propertyPath: m_Name
