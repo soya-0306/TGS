@@ -11,6 +11,8 @@ public class Combo
 
     public bool isOrderless; // 順不同コンボかどうかのフラグ
 
+    public int effectValue = 0;
+
     public Combo(List<CardType> seq, float multiplier)
     {
         sequence = seq;
@@ -96,7 +98,8 @@ public class ComboManager
 
                 if (currentCard.Type == combo.sequence[comboLength - 1])
                 {
-                    ComboEffectManager.ApplyEffect(combo.effectID, currentPlayer);
+                    // effectValue を渡すように変更
+                    ComboEffectManager.ApplyEffect(combo.effectID, currentPlayer, combo.effectValue);
                     return combo.damageMultiplier;
                 }
             }
@@ -199,4 +202,28 @@ public class ComboManager
         }
         return matched;
     }
+
+    // ★追加メソッド（ファイルの適切な場所に追加）
+    // 引数に現在のカードオブジェクト（またはCardType）を渡して使います。
+    // 「このデッキの single-card コンボ（sequence.Count==1）で現在のカードと一致するものがあれば
+    // そのコンボの effectID/effectValue を ComboEffectManager に渡して発動させる」メソッドです。
+    public void TryApplySingleCardAikoEffect(PlayerHP player, Card currentCard)
+    {
+        if (currentCard == null) return;
+
+        CardType type = currentCard.Type;
+        foreach (var combo in combos)
+        {
+            // 1枚コンボのみ対象
+            if (combo.sequence != null && combo.sequence.Count == 1 && combo.sequence[0] == type)
+            {
+                if (combo.effectID != 0)
+                {
+                    ComboEffectManager.ApplyEffect(combo.effectID, player, combo.effectValue);
+                }
+            }
+        }
+    }
+
+
 }

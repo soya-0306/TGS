@@ -370,6 +370,10 @@ public class BattleManager : MonoBehaviour
                 else if (c1.Beats(c2))
                 {
                     int dmg = Mathf.CeilToInt(1 * p1Multiplier);
+
+                    // ★追加：コンボ効果による補正（存在すれば1回だけ適用される）
+                    dmg = ComboEffectManager.GetModifiedDamage(dmg);
+
                     lastDamageAmount = dmg;
                     player2HP.TakeDamage(dmg);
 
@@ -402,6 +406,10 @@ public class BattleManager : MonoBehaviour
                 else if (c2.Beats(c1))
                 {
                     int dmg = Mathf.CeilToInt(1 * p2Multiplier);
+
+                    // ★追加：コンボ効果による補正（存在すれば1回だけ適用される）
+                    dmg = ComboEffectManager.GetModifiedDamage(dmg);
+
                     lastDamageAmount = dmg;
                     player1HP.TakeDamage(dmg);
 
@@ -436,6 +444,10 @@ public class BattleManager : MonoBehaviour
                     roundResult += "Draw";
                     yield return StartCoroutine(DoDrawEffect(p1CardObj, p2CardObj));
                     sePlayer.PlayTieOrShieldSE();
+
+                    // ★追加：あいこ時に各プレイヤーの single-card コンボ効果をチェックして発動
+                    player1ComboManager.TryApplySingleCardAikoEffect(player1HP, c1);
+                    player2ComboManager.TryApplySingleCardAikoEffect(player2HP, c2);
                 }
             }
 

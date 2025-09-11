@@ -10,53 +10,65 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17ef61059ef35604cb5cdd28b1c437b2, type: 3}
-  m_Name: test1
+  m_Name: Tamiko
   m_EditorClassIdentifier: 
-  deckName: test1
-  deckIcon: {fileID: 21300000, guid: c8287b799d1994647a5501cdf5af54db, type: 3}
+  deckName: Yamiko
+  deckIcon: {fileID: 21300000, guid: 92ae3209c6aa84148b4f2d7a122e0047, type: 3}
   cards:
   - cardType: 0
-    count: 3
+    count: 4
   - cardType: 1
-    count: 3
+    count: 4
   - cardType: 2
-    count: 5
+    count: 4
   - cardType: 3
-    count: 2
+    count: 3
   combos:
-  - sequence: 000000000100000002000000
-    damageMultiplier: 3
-    effectID: 0
-    isOrderless: 1
+  - sequence: 00000000
+    damageMultiplier: 1
+    effectID: 3
+    isOrderless: 0
+    effectValue: 2
+  - sequence: 01000000
+    damageMultiplier: 1
+    effectID: 3
+    isOrderless: 0
+    effectValue: 2
+  - sequence: 02000000
+    damageMultiplier: 1
+    effectID: 3
+    isOrderless: 0
+    effectValue: 2
   genericCombos:
   - sequence: 0000000000000000
     damageMultiplier: 2
     effectID: 0
     isOrderless: 0
+    effectValue: 0
   - sequence: 0100000001000000
     damageMultiplier: 2
     effectID: 0
     isOrderless: 0
+    effectValue: 0
   - sequence: 0200000002000000
     damageMultiplier: 2
     effectID: 0
     isOrderless: 0
+    effectValue: 0
   - sequence: 0300000000000000
     damageMultiplier: 2
     effectID: 0
     isOrderless: 0
+    effectValue: 0
   - sequence: 0300000001000000
     damageMultiplier: 2
     effectID: 0
     isOrderless: 0
+    effectValue: 0
   - sequence: 0300000002000000
     damageMultiplier: 2
     effectID: 0
     isOrderless: 0
-<<<<<<< HEAD
-  deckCharacterPrefab: {fileID: 9186924836306480931, guid: 9bbe742d3529da54690ddce3b7a699f9, type: 3}
-  comboListImage: {fileID: 0}
-=======
-  deckCharacterPrefab: {fileID: 910367790453255035, guid: ffc2f69b038ff924c89ec3942b667ad6, type: 3}
-  comboListImage: {fileID: 21300000, guid: 6c71114273252f74cae1864ef48f4141, type: 3}
->>>>>>> 8d01aa4287390a58483aa39ebee29c1488dbec49
+    effectValue: 0
+  deckCharacterPrefab: {fileID: 943603732671023784, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+  comboListImage: {fileID: 21300000, guid: 59f51550c7335404c9e064729be3040b, type: 3}

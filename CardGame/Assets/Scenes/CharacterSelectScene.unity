@@ -2145,6 +2145,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2404319140825963185, guid: ef7f4b9425436ff48aaf2d8079a6e322, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da3b3d6c60a556049be5835dd1dc1345, type: 3}
     - target: {fileID: 3492332227261724176, guid: ef7f4b9425436ff48aaf2d8079a6e322, type: 3}
       propertyPath: m_Name
       value: Yamiko
@@ -2160,6 +2164,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4048031314351894584, guid: ef7f4b9425436ff48aaf2d8079a6e322, type: 3}
+    - {fileID: 1963014866056842086, guid: ef7f4b9425436ff48aaf2d8079a6e322, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7f4b9425436ff48aaf2d8079a6e322, type: 3}
@@ -2183,6 +2188,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5606727565834271064, guid: ed82f474da286184e9eff83c00b344cd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 10027fce6a10adf4a856d7e844b603a2, type: 3}
     - target: {fileID: 9058547231515796297, guid: ed82f474da286184e9eff83c00b344cd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2278,6 +2287,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6355556628283269529, guid: ed82f474da286184e9eff83c00b344cd, type: 3}
+    - {fileID: 2266081843826047728, guid: ed82f474da286184e9eff83c00b344cd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed82f474da286184e9eff83c00b344cd, type: 3}
@@ -2537,6 +2547,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.8440857
       objectReference: {fileID: 0}
+    - target: {fileID: 4682256692609445212, guid: 7163d49c65ef47848ba089fb870bcdeb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 00cd93fcc007137429d1ce73516ecf14, type: 3}
     - target: {fileID: 5858445358744187632, guid: 7163d49c65ef47848ba089fb870bcdeb, type: 3}
       propertyPath: m_Name
       value: Karekizizi
@@ -2552,6 +2566,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 443122154125709592, guid: 7163d49c65ef47848ba089fb870bcdeb, type: 3}
+    - {fileID: 708091957942708618, guid: 7163d49c65ef47848ba089fb870bcdeb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7163d49c65ef47848ba089fb870bcdeb, type: 3}
