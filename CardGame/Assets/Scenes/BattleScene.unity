@@ -3167,10 +3167,10 @@ MonoBehaviour:
   bannerObject: {fileID: 2129426466}
   bannerRectTransform: {fileID: 2129426467}
   bannerImage: {fileID: 2048333287}
-  battleStartSprite: {fileID: 21300000, guid: 899d79eff6c32354e91bfdb98fe16437, type: 3}
-  round1Sprite: {fileID: 21300000, guid: d812ab1331132c442a320fd860a8e2ca, type: 3}
-  round2Sprite: {fileID: 21300000, guid: 5811edd245c3ef64687dad899ef9de7d, type: 3}
-  round3Sprite: {fileID: 21300000, guid: c1742a86c2013a247b170485999d07ae, type: 3}
+  battleStartSprite: {fileID: 21300000, guid: 4524140ce85c61148b79b4520071a577, type: 3}
+  round1Sprite: {fileID: 21300000, guid: 663c6dec119ad5247aa8f5abce90d28c, type: 3}
+  round2Sprite: {fileID: 21300000, guid: 3431b3571b0000447a5f52d870465b45, type: 3}
+  round3Sprite: {fileID: 21300000, guid: 9634607fe06b0ee4091efa274deeb8a6, type: 3}
   bannerSlideDuration: 0.5
   bannerWaitTime: 1.2
   damageSound: {fileID: 8300000, guid: f2b0ddf7641d19443a3248b7f7549937, type: 3}
@@ -9762,7 +9762,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8a096b9b17a1c4c41bd35def408a6f5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9789,15 +9789,15 @@ RectTransform:
   m_GameObject: {fileID: 2048333286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2129426467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 6670.5557, y: 2635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2054253052
 GameObject:
