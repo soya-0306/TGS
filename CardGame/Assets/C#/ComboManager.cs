@@ -23,6 +23,8 @@ public class Combo
 
 public class ComboManager
 {
+    private int pendingAikoDamage = 0;  // 次の攻撃に使うダメージ（0なら無効）
+
     private List<Combo> combos;            // 固有コンボ
     private List<Combo> genericCombos;     // 汎用コンボ
 
@@ -217,13 +219,43 @@ public class ComboManager
             // 1枚コンボのみ対象
             if (combo.sequence != null && combo.sequence.Count == 1 && combo.sequence[0] == type)
             {
-                if (combo.effectID != 0)
+                //if (combo.effectID != 0)
+                //{
+                //    ComboEffectManager.ApplyEffect(combo.effectID, player, combo.effectValue);
+                //}
+
+                if (combo.effectID == 3) // あいこ効果
                 {
-                    ComboEffectManager.ApplyEffect(combo.effectID, player, combo.effectValue);
+                    pendingAikoDamage = combo.effectValue;
+                    Debug.Log($"Player{player.playerId} にあいこ効果セット: {pendingAikoDamage} ダメージ");
                 }
+
             }
         }
     }
 
+    public bool HasAikoEffectID(int effectID)
+    {
+        foreach (var combo in combos)
+        {
+            if (combo.sequence != null && combo.sequence.Count == 1 && combo.effectID == 3)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool HasPendingAikoDamage()
+    {
+        return pendingAikoDamage > 0;
+    }
+
+    public int ConsumePendingAikoDamage()
+    {
+        int dmg = pendingAikoDamage;
+        pendingAikoDamage = 0; // 一度使ったらリセット
+        return dmg;
+    }
 
 }

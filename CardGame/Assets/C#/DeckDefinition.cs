@@ -13,7 +13,7 @@ public class CardEntry
 public class ComboPattern
 {
     public List<CardType> sequence;  // コンボ成立に必要なカードの並び
-    public float damageMultiplier = 1.5f; // 倍率
+    public float damageMultiplier = 1f; // 倍率
     public string comboName;
 }
 

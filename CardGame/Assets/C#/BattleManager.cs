@@ -371,8 +371,17 @@ public class BattleManager : MonoBehaviour
                 {
                     int dmg = Mathf.CeilToInt(1 * p1Multiplier);
 
-                    // ★追加：コンボ効果による補正（存在すれば1回だけ適用される）
-                    dmg = ComboEffectManager.GetModifiedDamage(dmg);
+                    //// ★追加：コンボ効果による補正（存在すれば1回だけ適用される）
+                    //dmg = ComboEffectManager.GetModifiedDamage(dmg);
+
+                    if (player1ComboManager.HasPendingAikoDamage())
+                    {
+                        dmg = player1ComboManager.ConsumePendingAikoDamage(); // セットされてたら使う
+                    }
+                    else
+                    {
+                        dmg = Mathf.CeilToInt(1 * p1Multiplier); // 通常ダメージ
+                    }
 
                     lastDamageAmount = dmg;
                     player2HP.TakeDamage(dmg);
@@ -407,8 +416,17 @@ public class BattleManager : MonoBehaviour
                 {
                     int dmg = Mathf.CeilToInt(1 * p2Multiplier);
 
-                    // ★追加：コンボ効果による補正（存在すれば1回だけ適用される）
-                    dmg = ComboEffectManager.GetModifiedDamage(dmg);
+                    //// ★追加：コンボ効果による補正（存在すれば1回だけ適用される）
+                    //dmg = ComboEffectManager.GetModifiedDamage(dmg);
+
+                    if (player2ComboManager.HasPendingAikoDamage())
+                    {
+                        dmg = player2ComboManager.ConsumePendingAikoDamage(); // セットされてたら使う
+                    }
+                    else
+                    {
+                        dmg = Mathf.CeilToInt(1 * p1Multiplier); // 通常ダメージ
+                    }
 
                     lastDamageAmount = dmg;
                     player1HP.TakeDamage(dmg);
@@ -446,8 +464,18 @@ public class BattleManager : MonoBehaviour
                     sePlayer.PlayTieOrShieldSE();
 
                     // ★追加：あいこ時に各プレイヤーの single-card コンボ効果をチェックして発動
-                    player1ComboManager.TryApplySingleCardAikoEffect(player1HP, c1);
-                    player2ComboManager.TryApplySingleCardAikoEffect(player2HP, c2);
+                    // プレイヤー1
+                    if (player1ComboManager.HasAikoEffectID(3))  //コンボにID=3があるかチェック
+                    {
+                        player1ComboManager.TryApplySingleCardAikoEffect(player1HP, c1);
+                    }
+
+                    // プレイヤー2
+                    if (player2ComboManager.HasAikoEffectID(3))
+                    {
+                        player2ComboManager.TryApplySingleCardAikoEffect(player2HP, c2);
+                    }
+
                 }
             }
 
@@ -482,30 +510,17 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        yield return EndOfRound(totalRounds);
+        yield return EndOfRound(currentRound);
     }
 
     IEnumerator EndOfRound(int roundNumber)
     {
+        int nextRoundNumber = roundNumber + 1;  // ← 今終わったラウンド番号に+1する
+        Debug.Log($"[EndOfRound] roundNumber={roundNumber}, nextRoundNumber={nextRoundNumber}, totalRounds={totalRounds}");
+
         Debug.Log("Battle Finished!");
 
         if (resultTextUIObject != null) resultTextUIObject.SetActive(true);
-
-        Sprite roundSprite = null;
-        switch (roundNumber)
-        {
-            case 2:
-                roundSprite = round2Sprite;
-                break;
-            case 3:
-                roundSprite = round3Sprite;
-                break;
-        }
-
-        if (roundSprite != null)
-        {
-            yield return PlayBannerAnimation(roundSprite);
-        }
 
         //yield return new WaitForSeconds(3f);
 
@@ -539,6 +554,27 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            Sprite roundSprite = null;
+            switch (nextRoundNumber)
+            {
+                case 2:
+                    roundSprite = round2Sprite;
+                    break;
+                case 3:
+                    roundSprite = round3Sprite;
+                    break;
+            }
+
+            if (roundSprite != null)
+            {
+                Debug.Log($"[EndOfRound] Showing banner for Round {nextRoundNumber}");
+                yield return PlayBannerAnimation(roundSprite);
+            }
+            else
+            {
+                Debug.LogWarning($"[EndOfRound] roundSprite is NULL for Round {nextRoundNumber}");
+            }
+
             player1CardShowPanel.SetActive(false);
             player2CardShowPanel.SetActive(false);
             roundResultTextUIObject.SetActive(false);
@@ -576,6 +612,8 @@ public class BattleManager : MonoBehaviour
             // 裏向きカードUIも元位置に戻す例
             StartCoroutine(player1RevealUI.ResetCardsPosition());
             StartCoroutine(player2RevealUI.ResetCardsPosition());
+
+            ComboEffectManager.ResetEffects();
 
             roundResultText.text = $"Round {currentRound} Start!";
         }

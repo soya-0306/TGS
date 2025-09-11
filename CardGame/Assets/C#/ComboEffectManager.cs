@@ -62,4 +62,9 @@ public static class ComboEffectManager
     {
         return effectID == 2;  // 例：ID 2だけランダム置き換えを必要とする
     }
+
+    public static void ResetEffects()
+    {
+        nextDamageBonus = 0;
+    }
 }
