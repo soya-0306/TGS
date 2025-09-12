@@ -1301,11 +1301,11 @@ MonoBehaviour:
   DamageClip: {fileID: 1827226128182048838, guid: 729995bd0102aeb4cbd5854fecb09a8f, type: 3}
   ShieldClip: {fileID: 0}
   FightSE: {fileID: 8300000, guid: 2505ef0f8f43ee54ab948d5f4700aa58, type: 3}
-  WaitFightSE: 0
+  WaitFightSE: 0.7
   WeaponSE: {fileID: 8300000, guid: 1003399d94847ca43b9a39916d034931, type: 3}
-  WaitWeaponSE: 0
+  WaitWeaponSE: 0.7
   MagicSE: {fileID: 8300000, guid: 6fe3e35237f50b747a951a19b253c73b, type: 3}
-  WaitMagicSE: 0
+  WaitMagicSE: 0.3
   DamageSE: {fileID: 8300000, guid: f2b0ddf7641d19443a3248b7f7549937, type: 3}
   WaitDamageSE: 0
   ShieldSE: {fileID: 0}
