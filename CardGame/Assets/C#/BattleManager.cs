@@ -707,13 +707,6 @@ public class BattleManager : MonoBehaviour
         ShowDamagePopup(cardObj, damage);
     }
 
-
-    //private IEnumerator HideDamagePanelAfterDelay(GameObject panel)
-    //{
-    //    yield return new WaitForSeconds(1.0f);
-    //    panel.SetActive(false);
-    //}
-
     private void ShowCardToSlot(GameObject panel, int index, Card card)
     {
         var slots = panel.GetComponentsInChildren<CardSlotUI>();
@@ -764,17 +757,6 @@ public class BattleManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("TitleScene");
     }
-
-    //private void PlayCharacterAnimation(GameObject character, CardType cardType)
-    //{
-    //    if (character == null) return;
-
-    //    var animController = character.GetComponent<KeyAnimationController>();
-    //    if (animController == null) return;
-
-    //    animController.PlayCardAnimation(cardType); // 新しく作るメソッド
-    //    animController.PlayDamageAnimation();
-    //}
 
     private void PlayBattleAnimations(GameObject winnerCharacter, CardType winnerCardType, GameObject loserCharacter)
     {
@@ -898,7 +880,6 @@ public class BattleManager : MonoBehaviour
         seq.OnComplete(() => Destroy(popup));
     }
 
-
     void StartRerollPhase()
     {
         rerollTimer = 0f;
@@ -947,16 +928,6 @@ public class BattleManager : MonoBehaviour
                 player1ComboListUIInstance = Instantiate(comboListUIPrefab, player1ComboListParent, false);
                 player1ComboListUIInstance.transform.localPosition = new Vector3(-Screen.width, 0, -10f);
 
-                //RectTransform rt = player1ComboListUIInstance.GetComponent<RectTransform>();
-                //if (rt != null)
-                //{
-                //    rt.anchorMin = Vector2.zero;
-                //    rt.anchorMax = Vector2.one;
-                //    rt.sizeDelta = Vector2.zero;
-                //    rt.anchoredPosition = Vector2.zero;
-                //    rt.localScale = Vector3.one;
-                //}
-
                 var image = player1ComboListUIInstance.GetComponent<Image>();
                 if (image != null && player1Deck != null)
                 {
@@ -991,16 +962,6 @@ public class BattleManager : MonoBehaviour
                 player2ComboListUIInstance = Instantiate(comboListUIPrefab, player2ComboListParent, false);
                 player2ComboListUIInstance.transform.localPosition = new Vector3(-Screen.width, 0, -10f);
 
-                //RectTransform rt = player2ComboListUIInstance.GetComponent<RectTransform>();
-                //if (rt != null)
-                //{
-                //    rt.anchorMin = Vector2.zero;
-                //    rt.anchorMax = Vector2.one;
-                //    rt.sizeDelta = Vector2.zero;
-                //    rt.anchoredPosition = Vector2.zero;
-                //    rt.localScale = Vector3.one;
-                //}
-
                 var image = player2ComboListUIInstance.GetComponent<Image>();
                 if (image != null && player2Deck != null)
                 {
@@ -1032,6 +993,10 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator PlayBannerAnimation(Sprite bannerSprite)
     {
+        // 帯表示中はカード選択を禁止
+        player1Selector.canSelect = false;
+        player2Selector.canSelect = false;
+
         // nullチェックと初期化
         if (bannerImage == null || bannerRectTransform == null)
             yield break;
@@ -1064,6 +1029,10 @@ public class BattleManager : MonoBehaviour
             .WaitForCompletion();
 
         bannerRectTransform.gameObject.SetActive(false);
+
+        // 帯が消えたらカード選択を再開
+        player1Selector.canSelect = true;
+        player2Selector.canSelect = true;
     }
 
     IEnumerator StartBattleSequence()
@@ -1082,6 +1051,10 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator ShowBanner(Sprite bannerSprite)
     {
+        // 帯表示中はカード選択を禁止
+        player1Selector.canSelect = false;
+        player2Selector.canSelect = false;
+
         bannerImage.sprite = bannerSprite;
         bannerImage.SetNativeSize(); // 画像に応じてサイズを合わせたい場合
 
@@ -1097,6 +1070,10 @@ public class BattleManager : MonoBehaviour
         yield return bannerRectTransform.DOAnchorPos(new Vector2(Screen.width, 0), 0.5f).SetEase(Ease.InCubic).WaitForCompletion();
 
         bannerRectTransform.gameObject.SetActive(false);
+
+        // 帯が消えたらカード選択を再開
+        player1Selector.canSelect = true;
+        player2Selector.canSelect = true;
     }
 
 }

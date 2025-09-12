@@ -8,38 +8,38 @@ public class DeckSelectUI : MonoBehaviour
     public AudioClip buttonClickSound;  // インスペクターで設定する
     private AudioSource audioSource;
 
-    //public DeckDefinition deck1;
-    //public DeckDefinition deck2;
+    [SerializeField] private GameObject blockerPanel;
 
-    //private Button button;
+    private bool isOperationBlocked = false;
 
-    //void Start()
-    //{
-    //    button = GetComponent<Button>();
-    //    button.onClick.AddListener(OnClick);
-    //}
+    // ここにTwoPlayerUISelectorの参照
+    public TwoPlayerUISelector uiSelector;
 
-    //public void SelectDeckForPlayer1(int deckIndex)
-    //{
-    //    DeckSelector.Instance.player1Deck = (deckIndex == 0) ? deck1 : deck2;
-    //}
-
-    //public void SelectDeckForPlayer2(int deckIndex)
-    //{
-    //    DeckSelector.Instance.player2Deck = (deckIndex == 0) ? deck1 : deck2;
-    //}
-
-    //public void StartBattle()
-    //{
-    //    SceneManager.LoadScene("BattleScene");
-    //}
     private void Awake()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+
+        if (blockerPanel != null)
+        {
+            blockerPanel.SetActive(false);
+        }
     }
 
     private IEnumerator PlaySEAndLoadScene()
     {
+        // 操作禁止開始
+        isOperationBlocked = true;
+        if (blockerPanel != null)
+        {
+            blockerPanel.SetActive(true);
+        }
+
+        // TwoPlayerUISelectorの操作禁止もセット
+        if (uiSelector != null)
+        {
+            uiSelector.isOperationBlocked = true;
+        }
+
         if (buttonClickSound != null)
         {
             audioSource.PlayOneShot(buttonClickSound);
@@ -59,6 +59,7 @@ public class DeckSelectUI : MonoBehaviour
 
     public void OnClick()
     {
+        if (isOperationBlocked) return;
         StartCoroutine(PlaySEAndLoadScene());
     }
 }

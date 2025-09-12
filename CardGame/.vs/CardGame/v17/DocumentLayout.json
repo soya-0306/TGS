@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "D:\\240281\\sin_TGS\\CardGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\sin_TGS\\CardGame\\assets\\c#\\combomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\sin_tgs\\cardgame\\assets\\c#\\deckselectui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\deckselectui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\sin_tgs\\cardgame\\assets\\image(kari)\\uiselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\image(kari)\\uiselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\sin_tgs\\cardgame\\assets\\c#\\combomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\combomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\sin_tgs\\cardgame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\sin_TGS\\CardGame\\assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|d:\\240281\\sin_tgs\\cardgame\\assets\\c#\\deckdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|D:\\240281\\sin_TGS\\CardGame\\assets\\c#\\deckdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EEBF18E-272D-828E-0FE3-FE5D1E52DE1C}|Assembly-CSharp.csproj|solutionrelative:assets\\c#\\deckdefinition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -34,7 +42,33 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "UISelector.cs",
+              "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\Image(KARI)\\UISelector.cs",
+              "RelativeDocumentMoniker": "Assets\\Image(KARI)\\UISelector.cs",
+              "ToolTip": "D:\\240281\\sin_TGS\\CardGame\\Assets\\Image(KARI)\\UISelector.cs",
+              "RelativeToolTip": "Assets\\Image(KARI)\\UISelector.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAuwFYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T03:01:10.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeckSelectUI.cs",
+              "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\DeckSelectUI.cs",
+              "RelativeDocumentMoniker": "Assets\\C#\\DeckSelectUI.cs",
+              "ToolTip": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\DeckSelectUI.cs",
+              "RelativeToolTip": "Assets\\C#\\DeckSelectUI.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAwD0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T02:53:40.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DeckDefinition.cs",
               "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\DeckDefinition.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\DeckDefinition.cs",
@@ -42,12 +76,11 @@
               "RelativeToolTip": "Assets\\C#\\DeckDefinition.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T06:34:56.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T06:34:56.819Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ComboManager.cs",
               "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\ComboManager.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\ComboManager.cs",
@@ -60,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ComboEffectManager.cs",
               "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\ComboEffectManager.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\ComboEffectManager.cs",
@@ -68,12 +101,11 @@
               "RelativeToolTip": "Assets\\C#\\ComboEffectManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-11T01:38:36.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-11T01:38:36.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "BattleManager.cs",
               "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\BattleManager.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\BattleManager.cs",
@@ -81,12 +113,11 @@
               "RelativeToolTip": "Assets\\C#\\BattleManager.cs",
               "ViewState": "AgIAAIYBAAAAAAAAAAAYwKcBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-05T12:33:15.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-05T12:33:15.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "KeyAnimationController.cs",
               "DocumentMoniker": "D:\\240281\\sin_TGS\\CardGame\\Assets\\C#\\KeyAnimationController.cs",
               "RelativeDocumentMoniker": "Assets\\C#\\KeyAnimationController.cs",

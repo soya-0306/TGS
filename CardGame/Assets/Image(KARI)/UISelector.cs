@@ -54,6 +54,8 @@ public class TwoPlayerUISelector : MonoBehaviour
     public AudioClip selectSE;
     public AudioSource audioSource; // ‹¤’Ê‚ÅÄ¶‚·‚éAudioSource
 
+    public bool isOperationBlocked = false;
+
     void Start()
     {
         UpdateCursorPosition(0);
@@ -78,6 +80,12 @@ public class TwoPlayerUISelector : MonoBehaviour
 
     void Update()
     {
+        if (isOperationBlocked)
+        {
+            // ‘€ì‹Ö~’†‚Í“ü—Íˆ—‚µ‚È‚¢
+            return;
+        }
+
         HandlePlayerInput(0, "Joystick1Horizontal", "Joystick1Vertical", KeyCode.Joystick1Button1);
         HandlePlayerInput(1, "Joystick2Horizontal", "Joystick2Vertical", KeyCode.Joystick2Button1);
 
