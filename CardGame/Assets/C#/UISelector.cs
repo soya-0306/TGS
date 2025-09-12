@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -8,11 +8,11 @@ public class TwoPlayerUISelector : MonoBehaviour
     [Header("UI Elements")]
     public List<Selectable> uiElements;
 
-    [Header("Highlight Images (UI‘I‘ğ˜g)")]
+    [Header("Highlight Images (UIé¸æŠæ )")]
     public GameObject player1CursorHighlight;
     public GameObject player2CursorHighlight;
 
-    [Header("‘€ìƒJ[ƒ\ƒ‹ Images (©—RˆÚ“®)")]
+    [Header("æ“ä½œã‚«ãƒ¼ã‚½ãƒ« Images (è‡ªç”±ç§»å‹•)")]
     public RectTransform player1Cursor;
     public RectTransform player2Cursor;
 
@@ -20,25 +20,25 @@ public class TwoPlayerUISelector : MonoBehaviour
     public float inputDelay = 0.3f;
     public float inputThreshold = 0.5f;
 
-    [Header("ƒCƒ[ƒW“§–¾‰»İ’è")]
+    [Header("ã‚¤ãƒ¡ãƒ¼ã‚¸é€æ˜åŒ–è¨­å®š")]
     public Image targetImageForPlayer1;
 
-    [Header("ƒvƒŒƒCƒ„[1—pƒƒbƒZ[ƒW•\¦UI")]
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼1ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºUI")]
     public Text infoText;
     public Text infoText3;
     public Text infoText5;
 
-    [Header("ƒvƒŒƒCƒ„[2—pƒƒbƒZ[ƒW•\¦UI")]
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼2ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤ºUI")]
     public Text infoText2;
     public Text infoText4;
     public Text infoText6;
 
-    [Header("ƒvƒŒƒCƒ„[1—pƒƒbƒZ[ƒWƒŠƒXƒg")]
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼1ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚¹ãƒˆ")]
     public List<string> elementMessages;
     public List<string> elementMessages3;
     public List<string> elementMessages5;
 
-    [Header("ƒvƒŒƒCƒ„[2—pƒƒbƒZ[ƒWƒŠƒXƒg")]
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼2ç”¨ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒªã‚¹ãƒˆ")]
     public List<string> elementMessages2;
     public List<string> elementMessages4;
     public List<string> elementMessages6;
@@ -49,10 +49,10 @@ public class TwoPlayerUISelector : MonoBehaviour
 
     private bool wasPlayer1OnTarget = false;
 
-    [Header("SEİ’è")]
+    [Header("SEè¨­å®š")]
     public AudioClip moveSE;
     public AudioClip selectSE;
-    public AudioSource audioSource; // ‹¤’Ê‚ÅÄ¶‚·‚éAudioSource
+    public AudioSource audioSource; // å…±é€šã§å†ç”Ÿã™ã‚‹AudioSource
 
     public bool isOperationBlocked = false;
 
@@ -82,7 +82,7 @@ public class TwoPlayerUISelector : MonoBehaviour
     {
         if (isOperationBlocked)
         {
-            // ‘€ì‹Ö~’†‚Í“ü—Íˆ—‚µ‚È‚¢
+            // æ“ä½œç¦æ­¢ä¸­ã¯å…¥åŠ›å‡¦ç†ã—ãªã„
             return;
         }
 
@@ -107,10 +107,10 @@ public class TwoPlayerUISelector : MonoBehaviour
             Selectable selectedElement = uiElements[currentIndices[playerIndex]];
             cursorHighlight.transform.position = selectedElement.transform.position;
 
-            // ImageƒRƒ“ƒ|[ƒlƒ“ƒg‚ª‚ ‚é‚È‚ç—LŒø‰»
+            // Imageã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒã‚ã‚‹ãªã‚‰æœ‰åŠ¹åŒ–
             Image image = cursorHighlight.GetComponent<Image>();
             if (image != null) image.enabled = true;
-            else cursorHighlight.SetActive(true);  // Image‚ª‚È‚¯‚ê‚ÎƒIƒuƒWƒFƒNƒg‚²‚Æ•\¦
+            else cursorHighlight.SetActive(true);  // ImageãŒãªã‘ã‚Œã°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã”ã¨è¡¨ç¤º
 
             if (playerIndex == 0 && targetImageForPlayer1 != null)
             {
@@ -125,7 +125,7 @@ public class TwoPlayerUISelector : MonoBehaviour
         }
         else if (cursorHighlight != null)
         {
-            // Image‚ª‚ ‚é‚È‚ç”ñ•\¦A‚È‚¯‚ê‚Î GameObject ”ñƒAƒNƒeƒBƒu
+            // ImageãŒã‚ã‚‹ãªã‚‰éè¡¨ç¤ºã€ãªã‘ã‚Œã° GameObject éã‚¢ã‚¯ãƒ†ã‚£ãƒ–
             Image image = cursorHighlight.GetComponent<Image>();
             if (image != null) image.enabled = false;
             else cursorHighlight.SetActive(false);
@@ -145,13 +145,13 @@ public class TwoPlayerUISelector : MonoBehaviour
         float h = Input.GetAxisRaw(hAxis);
         float v = Input.GetAxisRaw(vAxis);
 
-        // \šƒL[‚ª“®ì‚µ‚È‚¢ê‡‚Ì‘ã‘Ö‚Æ‚µ‚Ä DPad ²‚ğ—˜—pi—áFJoystick1j
+        // åå­—ã‚­ãƒ¼ãŒå‹•ä½œã—ãªã„å ´åˆã®ä»£æ›¿ã¨ã—ã¦ DPad è»¸ã‚’åˆ©ç”¨ï¼ˆä¾‹ï¼šJoystick1ï¼‰
         if (Mathf.Approximately(h, 0f) && Mathf.Approximately(v, 0f))
         {
             if (playerIndex == 0)
             {
                 h = Input.GetAxisRaw("P1_X");
-                v = Input.GetAxisRaw("P1_Y"); // ”½“]‚È‚µ
+                v = Input.GetAxisRaw("P1_Y"); // åè»¢ãªã—
             }
             else if (playerIndex == 1)
             {
@@ -160,11 +160,11 @@ public class TwoPlayerUISelector : MonoBehaviour
             }
         }
 
-        // \šƒL[‚Ìƒ{ƒ^ƒ““ü—Í‚ğƒ`ƒFƒbƒN‚µ‚Ä²‚É”½‰f‚³‚¹‚éiã‰º”½“]j
+        // åå­—ã‚­ãƒ¼ã®ãƒœã‚¿ãƒ³å…¥åŠ›ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¦è»¸ã«åæ˜ ã•ã›ã‚‹ï¼ˆä¸Šä¸‹åè»¢ï¼‰
         if (playerIndex == 0)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button7)) v = -1f;      // Up‚ğDown‚É”½“]
-            else if (Input.GetKeyDown(KeyCode.Joystick1Button6)) v = 1f;  // Down‚ğUp‚É”½“]
+            if (Input.GetKeyDown(KeyCode.Joystick1Button7)) v = -1f;      // Upã‚’Downã«åè»¢
+            else if (Input.GetKeyDown(KeyCode.Joystick1Button6)) v = 1f;  // Downã‚’Upã«åè»¢
             else if (Input.GetKeyDown(KeyCode.Joystick1Button4)) h = -1f; // Left
             else if (Input.GetKeyDown(KeyCode.Joystick1Button5)) h = 1f;  // Right
         }
@@ -176,7 +176,7 @@ public class TwoPlayerUISelector : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Joystick2Button5)) h = 1f;
         }
 
-        // ‘€ìŠJn‚µ‚½‚ç canMove ‚ğ true ‚É‚·‚éiƒJ[ƒ\ƒ‹•\¦‚Ì‚½‚ßj
+        // æ“ä½œé–‹å§‹ã—ãŸã‚‰ canMove ã‚’ true ã«ã™ã‚‹ï¼ˆã‚«ãƒ¼ã‚½ãƒ«è¡¨ç¤ºã®ãŸã‚ï¼‰
         if (!canMove[playerIndex] && (Mathf.Abs(h) > inputThreshold || Mathf.Abs(v) > inputThreshold))
         {
             canMove[playerIndex] = true;
@@ -209,16 +209,24 @@ public class TwoPlayerUISelector : MonoBehaviour
         {
             Debug.Log($"[PAD] Player {playerIndex + 1} selected: {uiElements[currentIndices[playerIndex]].gameObject.name}");
 
-            Button button = uiElements[currentIndices[playerIndex]] as Button;
-            if (button != null)
+            DeckSelectButton deckButton = uiElements[currentIndices[playerIndex]].GetComponent<DeckSelectButton>();
+            if (deckButton != null)
             {
-                button.onClick.Invoke();
+                deckButton.OnClick(playerIndex + 1);
+            }
+            else
+            {
+                Button button = uiElements[currentIndices[playerIndex]] as Button;
+                if (button != null)
+                {
+                    button.onClick.Invoke();
+                }
             }
 
             ShowMessageForSelectedIndex(playerIndex, currentIndices[playerIndex]);
-
             PlaySE(selectSE);
         }
+
     }
 
     void HandleKeyboardInput(int playerIndex, KeyCode up, KeyCode down, KeyCode left, KeyCode right, KeyCode submitKey)
@@ -264,16 +272,26 @@ public class TwoPlayerUISelector : MonoBehaviour
         {
             Debug.Log($"[Keyboard] Player {playerIndex + 1} selected: {uiElements[currentIndices[playerIndex]].gameObject.name}");
 
-            Button button = uiElements[currentIndices[playerIndex]] as Button;
-            if (button != null)
+            // ã¾ãšDeckSelectButtonãŒã‚ã‚‹ã‹ç¢ºèª
+            DeckSelectButton deckButton = uiElements[currentIndices[playerIndex]].GetComponent<DeckSelectButton>();
+            if (deckButton != null)
             {
-                button.onClick.Invoke();
+                deckButton.OnClick(playerIndex + 1); // ãƒ‡ãƒƒã‚­é¸æŠå‡¦ç†
+            }
+            else
+            {
+                // DeckSelectButtonãŒãªã‘ã‚Œã°é€šå¸¸ã®UIãƒœã‚¿ãƒ³ã‚’å®Ÿè¡Œ
+                Button button = uiElements[currentIndices[playerIndex]] as Button;
+                if (button != null)
+                {
+                    button.onClick.Invoke(); // ã“ã‚Œã§DeckSelectUI.OnClick()ãŒå‘¼ã°ã‚Œã‚‹
+                }
             }
 
             ShowMessageForSelectedIndex(playerIndex, currentIndices[playerIndex]);
-
             PlaySE(selectSE);
         }
+
     }
 
     void ShowMessageForSelectedIndex(int playerIndex, int selectedIndex)

@@ -11,7 +11,7 @@ public class PlayerHP : MonoBehaviour
     public Material normalMaterial;   // –¾‚é‚¢•óÎ
     public Material damagedMaterial;  // ˆÃ‚¢•óÎ
 
-    private int maxHP = 1;
+    private int maxHP = 10;
     public int currentHP;
 
     void Start()

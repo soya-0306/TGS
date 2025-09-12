@@ -137,6 +137,9 @@ public class BattleManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"[BattleManager] Player1 deck = {(DeckSelector.Instance.player1Deck != null ? DeckSelector.Instance.player1Deck.deckName : "NULL")}");
+        Debug.Log($"[BattleManager] Player2 deck = {(DeckSelector.Instance.player2Deck != null ? DeckSelector.Instance.player2Deck.deckName : "NULL")}");
+
         // 各プレイヤーにIDを割り当て
         player1Selector.playerId = 1;
         player2Selector.playerId = 2;
@@ -211,6 +214,18 @@ public class BattleManager : MonoBehaviour
             if (selectionTimerText != null)
             {
                 selectionTimerText.text = $"リロール残り時間: {Mathf.CeilToInt(remaining)}秒";
+            }
+
+            // Qキーで1Pのコンボリスト表示切替
+            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button3))
+            {
+                ToggleComboListUI(1);
+            }
+
+            // Deleteキーで2Pのコンボリスト表示切替
+            if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Joystick2Button3))
+            {
+                ToggleComboListUI(2);
             }
 
             //リロールはXボタン joystick button 2

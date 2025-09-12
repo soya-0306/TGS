@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum PlayerSelecting
 {
@@ -20,7 +20,7 @@ public class DeckSelector : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // �V�[���ړ��Ŕj������Ȃ��悤��
+            DontDestroyOnLoad(gameObject);  // シーン移動で破棄されないように
         }
         else
         {
@@ -28,24 +28,18 @@ public class DeckSelector : MonoBehaviour
         }
     }
 
-    public void SelectDeck(DeckDefinition deck)
+    // ✅ プレイヤー番号を明示して保存する
+    public void SelectDeck(DeckDefinition deck, int playerIndex)
     {
-        if (currentSelecting == PlayerSelecting.Player1)
+        if (playerIndex == 1)
         {
             player1Deck = deck;
             Debug.Log($"Player1 selected: {deck.deckName}");
         }
-        else
+        else if (playerIndex == 2)
         {
             player2Deck = deck;
             Debug.Log($"Player2 selected: {deck.deckName}");
         }
-    }
-
-    public void TogglePlayer()
-    {
-        currentSelecting = (currentSelecting == PlayerSelecting.Player1)
-            ? PlayerSelecting.Player2
-            : PlayerSelecting.Player1;
     }
 }

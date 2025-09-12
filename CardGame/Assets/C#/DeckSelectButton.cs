@@ -10,15 +10,12 @@ public class DeckSelectButton : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(OnClick);
+        //button.onClick.AddListener(OnClick);
     }
 
-    void OnClick()
+    public void OnClick(int playerIndex)
     {
-        DeckSelector.Instance.SelectDeck(deck);
-        Debug.Log($"デッキ「{deck.deckName}」を選択しました");
-
-        // プレイヤー切り替え（任意。1P→2Pへ）
-        DeckSelector.Instance.TogglePlayer();
+        DeckSelector.Instance.SelectDeck(deck, playerIndex);
+        Debug.Log($"Player{playerIndex} がデッキ「{deck.deckName}」を選択しました");
     }
 }
