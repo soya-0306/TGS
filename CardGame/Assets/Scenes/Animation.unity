@@ -734,6 +734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toma
       objectReference: {fileID: 0}
+    - target: {fileID: 2498953833130196135, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6373528449050903364, guid: fca2390c946afe54f8bb02764c910fc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -830,6 +834,10 @@ PrefabInstance:
     - target: {fileID: 943603732671023784, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
       propertyPath: m_Name
       value: Yamiko
+      objectReference: {fileID: 0}
+    - target: {fileID: 943603732671023784, guid: dccf35928c7b1cf418631f2c67e79a5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
