@@ -5,6 +5,12 @@ public class AnyKeyToSelectScene : MonoBehaviour
 {
     private bool hasLoaded = false;
 
+    void Awake()
+    {
+        // タイトルシーンが始まったら状態をリセット
+        GameResetManager.ResetAll();
+    }
+
     void Update()
     {
         if (hasLoaded) return;

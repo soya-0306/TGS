@@ -38,7 +38,6 @@ public class DirectionalCardSelector : MonoBehaviour
 
     void Start()
     {
-
         // ここで DeckSelector から選ばれたデッキを渡す！
         if (playerId == 1)
         {
@@ -48,6 +47,14 @@ public class DirectionalCardSelector : MonoBehaviour
         {
             deck = DeckSelector.Instance.player2Deck;
         }
+
+        // デッキが未選択なら処理をスキップ
+        if (deck == null)
+        {
+            Debug.LogWarning($"[{name}] デッキが選択されていないため Start() をスキップしました");
+            return;
+        }
+
         SetDeckDefinition(deck);
 
         //playerDeck = new Deck();
@@ -227,6 +234,12 @@ public class DirectionalCardSelector : MonoBehaviour
 
     public void RefreshHand()
     {
+        // デッキが未選択の場合は何もしない
+        if (deck == null || playerDeckDefinition == null)
+        {
+            Debug.LogWarning($"[{name}] デッキが選択されていないため RefreshHand をスキップしました。");
+            return;
+        }
 
         Debug.Log($"playerDeckDefinition is null? {playerDeckDefinition == null}");
         if (playerDeckDefinition != null)

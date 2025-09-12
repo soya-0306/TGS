@@ -10,9 +10,13 @@ public class ResultSceneController : MonoBehaviour
 
     void Start()
     {
-        if (resultText != null && GameResultManager.Instance != null)
+        if (GameResultManager.Instance != null)
         {
             resultText.text = GameResultManager.Instance.finalResultText;
+        }
+        else
+        {
+            resultText.text = "結果が見つかりません"; // フォールバック
         }
 
         audioSource = GetComponent<AudioSource>();

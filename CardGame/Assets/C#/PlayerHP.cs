@@ -11,7 +11,7 @@ public class PlayerHP : MonoBehaviour
     public Material normalMaterial;   // 明るい宝石
     public Material damagedMaterial;  // 暗い宝石
 
-    private int maxHP = 10;
+    private int maxHP = 1;
     public int currentHP;
 
     void Start()
@@ -55,5 +55,12 @@ public class PlayerHP : MonoBehaviour
                 }
             }
         }
+    }
+
+    // タイトルに戻ったときなどにHPを初期化する
+    public void ResetHP()
+    {
+        currentHP = maxHP;   // maxHP は既にこのクラス内で 10 に設定されています
+        UpdateGemMaterials();
     }
 }

@@ -65,6 +65,7 @@ public static class ComboEffectManager
 
     public static void ResetEffects()
     {
+        nextDamageUpActive = false;
         nextDamageBonus = 0;
     }
 }

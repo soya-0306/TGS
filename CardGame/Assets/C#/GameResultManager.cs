@@ -1,17 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GameResultManager : MonoBehaviour
 {
-    public static GameResultManager Instance;
-
-    public string finalResultText;
+    public static GameResultManager Instance { get; private set; }
+    public string finalResultText; // ãƒªã‚¶ãƒ«ãƒˆç”»é¢ã«æ¸¡ã™ç”¨
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject); // ƒV[ƒ“‚Ü‚½‚¢‚Å‚àc‚·
+            DontDestroyOnLoad(gameObject); // âœ… ã“ã‚Œã§æ®‹ã™
         }
         else
         {
