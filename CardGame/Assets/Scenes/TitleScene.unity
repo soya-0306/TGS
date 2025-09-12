@@ -758,7 +758,7 @@ PrefabInstance:
     - target: {fileID: 3003762523909897680, guid: 343cd85c8dde28f4a9c7ce9458ff6a4d, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: a0734c2493a287f4380d37ace1644a67, type: 3}
+      objectReference: {fileID: 32900000, guid: 8878b47c4fc44504c89f2932f7b57aca, type: 3}
     - target: {fileID: 3003762523909897680, guid: 343cd85c8dde28f4a9c7ce9458ff6a4d, type: 3}
       propertyPath: m_TargetCamera
       value: 
@@ -797,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 1919547210}
     - target: {fileID: 3062055781258138785, guid: 343cd85c8dde28f4a9c7ce9458ff6a4d, type: 3}
       propertyPath: waitTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7252131943932004564, guid: 343cd85c8dde28f4a9c7ce9458ff6a4d, type: 3}
       propertyPath: m_Name
